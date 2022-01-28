@@ -471,7 +471,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function initSetting() {
         $("#username").val(cookie("username") ? cookie("username") : "");
         $("#message").val(cookie("message") ? cookie("message") : "");
-        $("title").text(cookie("title") ? cookie("title") : "吃掉空门苍");
+        $("title").text(cookie("title") ? cookie("title") : "调戏空门苍");
         let keyboard = cookie('keyboard');
         if (keyboard) {
             keyboard = keyboard.toLowerCase();
