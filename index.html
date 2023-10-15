@@ -79,237 +79,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Git" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/15/Git/" class="article-date">
-  <time class="dt-published" datetime="2023-10-15T08:51:16.863Z" itemprop="datePublished">2023-10-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="01-学习目标"><a href="#01-学习目标" class="headerlink" title="01 学习目标"></a>01 学习目标</h1><ul>
-<li>1.记录历史版本，回退历史版本</li>
-<li>2.团队开发，方便代码合并</li>
-</ul>
-<h1 id="02-版本控制器的方式"><a href="#02-版本控制器的方式" class="headerlink" title="02 版本控制器的方式"></a>02 版本控制器的方式</h1><ul>
-<li>SVN：集中式版本控制系统，版本库位于中央服务器</li>
-<li>Git：分布式版本控制系统，分为本地仓库和远程仓库</li>
-</ul>
-<h1 id="03-SVN-Git"><a href="#03-SVN-Git" class="headerlink" title="03 SVN_Git"></a>03 SVN_Git</h1><ul>
-<li>SVN为集中版本控制工具，不支持离线提交</li>
-<li>Git为分布式版本控制工具，支持离线提交</li>
-</ul>
-<h1 id="04-git工作流程简述"><a href="#04-git工作流程简述" class="headerlink" title="04 git工作流程简述"></a>04 git工作流程简述</h1><ul>
-<li>本地仓库（Repository）<ul>
-<li>工作区（Workspace）</li>
-<li>暂存区（IndexStage）</li>
-</ul>
-</li>
-<li>远程仓库（Remote）</li>
-</ul>
-<h1 id="05-git环境配与安装"><a href="#05-git环境配与安装" class="headerlink" title="05 git环境配与安装"></a>05 git环境配与安装</h1><ul>
-<li>name&amp;email</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name&quot;XXX&quot;</span><br><span class="line">$ git config --global user.email&quot;XXX&quot;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>alias</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch ~./bashrc</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//修改.bashrc文件</span><br><span class="line">alias git-log=&#x27;git log --pretty=online --all --graph --abbrev-commit&#x27;</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>GitBash乱码问题</p>
-<ul>
-<li>1.打开GitBash</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>2.打开%githome%&#x2F;etc&#x2F;bash.bashrc</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//加入到最后两行</span><br><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="06-获取本地仓库"><a href="#06-获取本地仓库" class="headerlink" title="06 获取本地仓库"></a>06 获取本地仓库</h1><ul>
-<li><p>1.右键Git bash</p>
-</li>
-<li><p>2.初始化</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.check一下.git的隐藏目录</p>
-</li>
-</ul>
-<h1 id="07-git常用指令"><a href="#07-git常用指令" class="headerlink" title="07 git常用指令"></a>07 git常用指令</h1><ul>
-<li><p>1.工作区–&gt;暂存区</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add XXX</span><br><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.暂存区–&gt;本地仓库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;XXX&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.查看状态</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>4.查看记录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">$ git-log</span><br><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>5.版本回退</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard &lt;CommitID&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>6.忽略列表。在仓库下建一个.gitignore文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.a //忽略所有.a文件的add</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="09-git分支-常用指令"><a href="#09-git分支-常用指令" class="headerlink" title="09 git分支_常用指令"></a>09 git分支_常用指令</h1><ul>
-<li><p>1.查看本地分支</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.创建本地分支</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch XXX</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.切换分支</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout XXX</span><br><span class="line">$ git checkout -b XXX</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>4.合并分支</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//将XXX合并到当前分支</span><br><span class="line">$ git merge XXX</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>5.删除分支</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d XXX</span><br><span class="line">$ git branch -D XXX</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="10-解决冲突"><a href="#10-解决冲突" class="headerlink" title="10 解决冲突"></a>10 解决冲突</h1><ul>
-<li>1.处理文件冲突</li>
-<li>2.解决完后add</li>
-<li>3.提交commit</li>
-<li>4.本质是将文件版本选择交给命令者</li>
-</ul>
-<h1 id="11-分支使用流程"><a href="#11-分支使用流程" class="headerlink" title="11 分支使用流程"></a>11 分支使用流程</h1><ul>
-<li>master<ul>
-<li>实际运行版本</li>
-</ul>
-</li>
-<li>develop<ul>
-<li>开发版本，修改后merge到master</li>
-</ul>
-</li>
-<li>feature<ul>
-<li>开发具体功能版本，修改后merge到develop，用完detele</li>
-</ul>
-</li>
-<li>hotfix<ul>
-<li>修复master的bug后版本，merge到master并创建一个develop版本</li>
-</ul>
-</li>
-<li>else</li>
-</ul>
-<h1 id="13-强制删除分支的场景"><a href="#13-强制删除分支的场景" class="headerlink" title="13 强制删除分支的场景"></a>13 强制删除分支的场景</h1><ul>
-<li>分支未被合并保存就被删除，-d无法执行，使用-D强制删除</li>
-</ul>
-<h1 id="15-合并的快进模式"><a href="#15-合并的快进模式" class="headerlink" title="15 合并的快进模式"></a>15 合并的快进模式</h1><ul>
-<li>没有出现分叉的两个分支，后者可以直接前进到前者版本</li>
-</ul>
-<h1 id="16-仓库托管，注册，创建仓库，配置公钥"><a href="#16-仓库托管，注册，创建仓库，配置公钥" class="headerlink" title="16 仓库托管，注册，创建仓库，配置公钥"></a>16 仓库托管，注册，创建仓库，配置公钥</h1><ul>
-<li><p>Github，码云，GitLab</p>
-</li>
-<li><p>如果本地有仓库的话就在远端填好信息即可，不更改默认配置</p>
-</li>
-<li><p>在本地配置公钥</p>
-<ul>
-<li><p>1.生成rsa公钥，默认配置（enter）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.查看公钥</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.提交公钥到远程:个人设置–&gt;SSH公钥–&gt;粘贴确定</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="17-远程仓库添加，查看，推送"><a href="#17-远程仓库添加，查看，推送" class="headerlink" title="17 远程仓库添加，查看，推送"></a>17 远程仓库添加，查看，推送</h1><ul>
-<li><p>连接远程仓库（默认命名origin）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin URL(HTTPS/SSH)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">$ git branch -vv//展示详细分支信息</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>推送</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git push [-f] [--set-upstream] [远端名称[本地分支名]:[远端分支名]]</span><br><span class="line">$ git push</span><br><span class="line">//[-f]为强制覆盖</span><br><span class="line">//[--set-upstream]为绑定分支，如将本地master与远端master绑定，下次push有默认</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="20-clone-抓取和拉取"><a href="#20-clone-抓取和拉取" class="headerlink" title="20 clone,抓取和拉取"></a>20 clone,抓取和拉取</h1><ul>
-<li><p>clone</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone HTTPS/SSH [folder_name]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>抓取（fetch）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch [remote_name] [branch_name]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>拉取（pull）,相较于抓取多了一步merge</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull [remote_name] [branch_name]</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="21-远程解决冲突"><a href="#21-远程解决冲突" class="headerlink" title="21 远程解决冲突"></a>21 远程解决冲突</h1><ul>
-<li>多人同时修改了并push，和本地冲突解决方案一样<ul>
-<li>1.pull得到文件，发现冲突</li>
-<li>2.解决冲突，文件结果自定</li>
-<li>3.解决完成push</li>
-<li>4.对方及时pull更新</li>
-</ul>
-</li>
-</ul>
-<h1 id="23-idea配置，本地基本操作-push"><a href="#23-idea配置，本地基本操作-push" class="headerlink" title="23 idea配置，本地基本操作_push"></a>23 idea配置，本地基本操作_push</h1><ul>
-<li>file–&gt;setting–&gt;git–&gt;Path to Git exe.</li>
-<li>创建远程仓库</li>
-<li>注意在工程里添加.gitignore文件</li>
-<li>本地仓库:VCS–&gt;Import into Version Control–&gt;Create Git Repository</li>
-<li>commit:Git–&gt;✔️–&gt;选文件，写log</li>
-<li>查看:Version Control–&gt;Log</li>
-<li>push:VCS–&gt;Git–&gt;Push–&gt;Define remote–&gt;URL;以后可以在commit时一起push了</li>
-</ul>
-<h1 id="24-idea克隆，更新，解决冲突"><a href="#24-idea克隆，更新，解决冲突" class="headerlink" title="24 idea克隆，更新，解决冲突"></a>24 idea克隆，更新，解决冲突</h1><ul>
-<li>VCS–&gt;Checkout from Version Control–&gt;Git–&gt;URL&amp;Dir</li>
-<li>冲突<ul>
-<li>A commit&amp;push</li>
-<li>B commit</li>
-<li>B pull(↙️),发现冲突，同理解决冲突</li>
-<li>B 右键文件:Git–&gt;Add;commit&amp;push</li>
-</ul>
-</li>
-</ul>
-<h1 id="25-分支操作"><a href="#25-分支操作" class="headerlink" title="25 分支操作"></a>25 分支操作</h1><ul>
-<li>找到需要分支的version:右键–&gt;New–&gt;Branch–&gt;name</li>
-<li>merge:右下角Git:branch_name–&gt;branch_x–&gt;Merge into Current</li>
-</ul>
-<h1 id="26-idea快速操作入口"><a href="#26-idea快速操作入口" class="headerlink" title="26 idea快速操作入口"></a>26 idea快速操作入口</h1><ul>
-<li>1.上方Git进入</li>
-<li>2.右键文件Git操作</li>
-<li>3.右下角Git进入</li>
-</ul>
-<h1 id="27-场景分析"><a href="#27-场景分析" class="headerlink" title="27 场景分析"></a>27 场景分析</h1><h1 id="28-几条铁令，idea集成gitbash"><a href="#28-几条铁令，idea集成gitbash" class="headerlink" title="28 几条铁令，idea集成gitbash"></a>28 几条铁令，idea集成gitbash</h1><ul>
-<li>铁令<ul>
-<li>1.切换分支先提交本地修改</li>
-<li>2.代码及时提交</li>
-<li>3.不要删除文件目录，以便找回</li>
-</ul>
-</li>
-<li>集成:File–&gt;Setting–&gt;Terminal–&gt;Shell Path改为GitBash路径即可</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yohanemashiro.github.io/2023/10/15/Git/" data-id="clnr8u71f0001j4szdgwggc9s" data-title="" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-java入门" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/10/15/java%E5%85%A5%E9%97%A8/" class="article-date">
@@ -708,6 +477,247 @@
 
 
   
+    <article id="post-Git" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/10/15/Git/" class="article-date">
+  <time class="dt-published" datetime="2023-10-14T16:00:00.000Z" itemprop="datePublished">2023-10-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/10/15/Git/">Git</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="01-学习目标"><a href="#01-学习目标" class="headerlink" title="01 学习目标"></a>01 学习目标</h1><ul>
+<li>1.记录历史版本，回退历史版本</li>
+<li>2.团队开发，方便代码合并</li>
+</ul>
+<h1 id="02-版本控制器的方式"><a href="#02-版本控制器的方式" class="headerlink" title="02 版本控制器的方式"></a>02 版本控制器的方式</h1><ul>
+<li>SVN：集中式版本控制系统，版本库位于中央服务器</li>
+<li>Git：分布式版本控制系统，分为本地仓库和远程仓库</li>
+</ul>
+<h1 id="03-SVN-Git"><a href="#03-SVN-Git" class="headerlink" title="03 SVN_Git"></a>03 SVN_Git</h1><ul>
+<li>SVN为集中版本控制工具，不支持离线提交</li>
+<li>Git为分布式版本控制工具，支持离线提交</li>
+</ul>
+<h1 id="04-git工作流程简述"><a href="#04-git工作流程简述" class="headerlink" title="04 git工作流程简述"></a>04 git工作流程简述</h1><ul>
+<li>本地仓库（Repository）<ul>
+<li>工作区（Workspace）</li>
+<li>暂存区（IndexStage）</li>
+</ul>
+</li>
+<li>远程仓库（Remote）</li>
+</ul>
+<h1 id="05-git环境配与安装"><a href="#05-git环境配与安装" class="headerlink" title="05 git环境配与安装"></a>05 git环境配与安装</h1><ul>
+<li>name&amp;email</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name&quot;XXX&quot;</span><br><span class="line">$ git config --global user.email&quot;XXX&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>alias</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch ~./bashrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//修改.bashrc文件</span><br><span class="line">alias git-log=&#x27;git log --pretty=online --all --graph --abbrev-commit&#x27;</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>GitBash乱码问题</p>
+<ul>
+<li>1.打开GitBash</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.打开%githome%&#x2F;etc&#x2F;bash.bashrc</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//加入到最后两行</span><br><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="06-获取本地仓库"><a href="#06-获取本地仓库" class="headerlink" title="06 获取本地仓库"></a>06 获取本地仓库</h1><ul>
+<li><p>1.右键Git bash</p>
+</li>
+<li><p>2.初始化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.check一下.git的隐藏目录</p>
+</li>
+</ul>
+<h1 id="07-git常用指令"><a href="#07-git常用指令" class="headerlink" title="07 git常用指令"></a>07 git常用指令</h1><ul>
+<li><p>1.工作区–&gt;暂存区</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add XXX</span><br><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.暂存区–&gt;本地仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;XXX&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.查看状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.查看记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">$ git-log</span><br><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5.版本回退</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard &lt;CommitID&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6.忽略列表。在仓库下建一个.gitignore文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.a //忽略所有.a文件的add</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="09-git分支-常用指令"><a href="#09-git分支-常用指令" class="headerlink" title="09 git分支_常用指令"></a>09 git分支_常用指令</h1><ul>
+<li><p>1.查看本地分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.创建本地分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch XXX</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.切换分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout XXX</span><br><span class="line">$ git checkout -b XXX</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.合并分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//将XXX合并到当前分支</span><br><span class="line">$ git merge XXX</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5.删除分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d XXX</span><br><span class="line">$ git branch -D XXX</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="10-解决冲突"><a href="#10-解决冲突" class="headerlink" title="10 解决冲突"></a>10 解决冲突</h1><ul>
+<li>1.处理文件冲突</li>
+<li>2.解决完后add</li>
+<li>3.提交commit</li>
+<li>4.本质是将文件版本选择交给命令者</li>
+</ul>
+<h1 id="11-分支使用流程"><a href="#11-分支使用流程" class="headerlink" title="11 分支使用流程"></a>11 分支使用流程</h1><ul>
+<li>master<ul>
+<li>实际运行版本</li>
+</ul>
+</li>
+<li>develop<ul>
+<li>开发版本，修改后merge到master</li>
+</ul>
+</li>
+<li>feature<ul>
+<li>开发具体功能版本，修改后merge到develop，用完detele</li>
+</ul>
+</li>
+<li>hotfix<ul>
+<li>修复master的bug后版本，merge到master并创建一个develop版本</li>
+</ul>
+</li>
+<li>else</li>
+</ul>
+<h1 id="13-强制删除分支的场景"><a href="#13-强制删除分支的场景" class="headerlink" title="13 强制删除分支的场景"></a>13 强制删除分支的场景</h1><ul>
+<li>分支未被合并保存就被删除，-d无法执行，使用-D强制删除</li>
+</ul>
+<h1 id="15-合并的快进模式"><a href="#15-合并的快进模式" class="headerlink" title="15 合并的快进模式"></a>15 合并的快进模式</h1><ul>
+<li>没有出现分叉的两个分支，后者可以直接前进到前者版本</li>
+</ul>
+<h1 id="16-仓库托管，注册，创建仓库，配置公钥"><a href="#16-仓库托管，注册，创建仓库，配置公钥" class="headerlink" title="16 仓库托管，注册，创建仓库，配置公钥"></a>16 仓库托管，注册，创建仓库，配置公钥</h1><ul>
+<li><p>Github，码云，GitLab</p>
+</li>
+<li><p>如果本地有仓库的话就在远端填好信息即可，不更改默认配置</p>
+</li>
+<li><p>在本地配置公钥</p>
+<ul>
+<li><p>1.生成rsa公钥，默认配置（enter）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.查看公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.提交公钥到远程:个人设置–&gt;SSH公钥–&gt;粘贴确定</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="17-远程仓库添加，查看，推送"><a href="#17-远程仓库添加，查看，推送" class="headerlink" title="17 远程仓库添加，查看，推送"></a>17 远程仓库添加，查看，推送</h1><ul>
+<li><p>连接远程仓库（默认命名origin）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin URL(HTTPS/SSH)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">$ git branch -vv//展示详细分支信息</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git push [-f] [--set-upstream] [远端名称[本地分支名]:[远端分支名]]</span><br><span class="line">$ git push</span><br><span class="line">//[-f]为强制覆盖</span><br><span class="line">//[--set-upstream]为绑定分支，如将本地master与远端master绑定，下次push有默认</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="20-clone-抓取和拉取"><a href="#20-clone-抓取和拉取" class="headerlink" title="20 clone,抓取和拉取"></a>20 clone,抓取和拉取</h1><ul>
+<li><p>clone</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone HTTPS/SSH [folder_name]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>抓取（fetch）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch [remote_name] [branch_name]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拉取（pull）,相较于抓取多了一步merge</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull [remote_name] [branch_name]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="21-远程解决冲突"><a href="#21-远程解决冲突" class="headerlink" title="21 远程解决冲突"></a>21 远程解决冲突</h1><ul>
+<li>多人同时修改了并push，和本地冲突解决方案一样<ul>
+<li>1.pull得到文件，发现冲突</li>
+<li>2.解决冲突，文件结果自定</li>
+<li>3.解决完成push</li>
+<li>4.对方及时pull更新</li>
+</ul>
+</li>
+</ul>
+<h1 id="23-idea配置，本地基本操作-push"><a href="#23-idea配置，本地基本操作-push" class="headerlink" title="23 idea配置，本地基本操作_push"></a>23 idea配置，本地基本操作_push</h1><ul>
+<li>file–&gt;setting–&gt;git–&gt;Path to Git exe.</li>
+<li>创建远程仓库</li>
+<li>注意在工程里添加.gitignore文件</li>
+<li>本地仓库:VCS–&gt;Import into Version Control–&gt;Create Git Repository</li>
+<li>commit:Git–&gt;✔️–&gt;选文件，写log</li>
+<li>查看:Version Control–&gt;Log</li>
+<li>push:VCS–&gt;Git–&gt;Push–&gt;Define remote–&gt;URL;以后可以在commit时一起push了</li>
+</ul>
+<h1 id="24-idea克隆，更新，解决冲突"><a href="#24-idea克隆，更新，解决冲突" class="headerlink" title="24 idea克隆，更新，解决冲突"></a>24 idea克隆，更新，解决冲突</h1><ul>
+<li>VCS–&gt;Checkout from Version Control–&gt;Git–&gt;URL&amp;Dir</li>
+<li>冲突<ul>
+<li>A commit&amp;push</li>
+<li>B commit</li>
+<li>B pull(↙️),发现冲突，同理解决冲突</li>
+<li>B 右键文件:Git–&gt;Add;commit&amp;push</li>
+</ul>
+</li>
+</ul>
+<h1 id="25-分支操作"><a href="#25-分支操作" class="headerlink" title="25 分支操作"></a>25 分支操作</h1><ul>
+<li>找到需要分支的version:右键–&gt;New–&gt;Branch–&gt;name</li>
+<li>merge:右下角Git:branch_name–&gt;branch_x–&gt;Merge into Current</li>
+</ul>
+<h1 id="26-idea快速操作入口"><a href="#26-idea快速操作入口" class="headerlink" title="26 idea快速操作入口"></a>26 idea快速操作入口</h1><ul>
+<li>1.上方Git进入</li>
+<li>2.右键文件Git操作</li>
+<li>3.右下角Git进入</li>
+</ul>
+<h1 id="27-场景分析"><a href="#27-场景分析" class="headerlink" title="27 场景分析"></a>27 场景分析</h1><h1 id="28-几条铁令，idea集成gitbash"><a href="#28-几条铁令，idea集成gitbash" class="headerlink" title="28 几条铁令，idea集成gitbash"></a>28 几条铁令，idea集成gitbash</h1><ul>
+<li>铁令<ul>
+<li>1.切换分支先提交本地修改</li>
+<li>2.代码及时提交</li>
+<li>3.不要删除文件目录，以便找回</li>
+</ul>
+</li>
+<li>集成:File–&gt;Setting–&gt;Terminal–&gt;Shell Path改为GitBash路径即可</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2023/10/15/Git/" data-id="clnr8u71f0001j4szdgwggc9s" data-title="Git" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
   <nav id="page-nav">
@@ -744,10 +754,6 @@
       <ul>
         
           <li>
-            <a href="/2023/10/15/Git/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2023/10/15/java%E5%85%A5%E9%97%A8/">(no title)</a>
           </li>
         
@@ -761,6 +767,10 @@
         
           <li>
             <a href="/2023/10/15/java%E6%A1%88%E4%BE%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/15/java%E8%AF%AD%E6%B3%95/">(no title)</a>
           </li>
         
       </ul>
