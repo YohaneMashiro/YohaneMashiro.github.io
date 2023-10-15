@@ -528,7 +528,75 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="02-静态初始化数组，数组的访问"><a href="#02-静态初始化数组，数组的访问" class="headerlink" title="02 静态初始化数组，数组的访问"></a>02 静态初始化数组，数组的访问</h1><h1 id="03-数组遍历，案例练习"><a href="#03-数组遍历，案例练习" class="headerlink" title="03 数组遍历，案例练习"></a>03 数组遍历，案例练习</h1><h1 id="04-动态初始化数组，案例练习"><a href="#04-动态初始化数组，案例练习" class="headerlink" title="04 动态初始化数组，案例练习"></a>04 动态初始化数组，案例练习</h1><h1 id="05-数组的内存执行原理"><a href="#05-数组的内存执行原理" class="headerlink" title="05 数组的内存执行原理"></a>05 数组的内存执行原理</h1><h1 id="06-数组案例：求最值，反转"><a href="#06-数组案例：求最值，反转" class="headerlink" title="06 数组案例：求最值，反转"></a>06 数组案例：求最值，反转</h1><h1 id="07-随机排名，debug"><a href="#07-随机排名，debug" class="headerlink" title="07 随机排名，debug"></a>07 随机排名，debug</h1>
+        <h1 id="02-静态初始化数组，数组的访问"><a href="#02-静态初始化数组，数组的访问" class="headerlink" title="02 静态初始化数组，数组的访问"></a>02 静态初始化数组，数组的访问</h1><ul>
+<li>写法<ul>
+<li>1.数据类型[] 数组名&#x3D;{元素1，元素2，…}；</li>
+<li>2.数据类型[] 数组名&#x3D;new 数据类型[]{元素1，元素2，…}；</li>
+</ul>
+</li>
+<li>数据类型[] 数组名 也可写成 数据类型 数组名[]</li>
+<li>数组属于引用数据类型，储存数组在内存中的地址</li>
+<li>访问<ul>
+<li>元素：数组名[索引]</li>
+<li>长度：数组名.length</li>
+<li>最大索引：长度-1（长度&gt;0）</li>
+<li>访问超出最大索引：索引越界异常</li>
+</ul>
+</li>
+</ul>
+<h1 id="03-数组遍历，案例练习"><a href="#03-数组遍历，案例练习" class="headerlink" title="03 数组遍历，案例练习"></a>03 数组遍历，案例练习</h1><ul>
+<li><p>遍历：一个个访问容器中的数据</p>
+</li>
+<li><p>遍历数组：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] age=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;a.length;++i)</span><br><span class="line">    System.out.println(age[i]);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="04-动态初始化数组，案例练习"><a href="#04-动态初始化数组，案例练习" class="headerlink" title="04 动态初始化数组，案例练习"></a>04 动态初始化数组，案例练习</h1><ul>
+<li>写法<ul>
+<li>数据类型[] 数组名&#x3D;new 数据类型[长度]；</li>
+</ul>
+</li>
+<li>默认值<ul>
+<li>整型 0</li>
+<li>浮点型 0.0</li>
+<li>布尔型 false</li>
+<li>引用型 null</li>
+</ul>
+</li>
+<li>静态与动态<ul>
+<li>静态适合元素量已知业务</li>
+<li>动态适合元素量未知业务</li>
+</ul>
+</li>
+</ul>
+<h1 id="05-数组的内存执行原理"><a href="#05-数组的内存执行原理" class="headerlink" title="05 数组的内存执行原理"></a>05 数组的内存执行原理</h1><ul>
+<li>JVM分区<ul>
+<li>方法区</li>
+<li>栈内存</li>
+<li>堆内存</li>
+</ul>
+</li>
+<li>int a与int[] arr&#x3D;new int[3]的区别<ul>
+<li>a是变量，放在栈里，存储为a的值</li>
+<li>new int[3]创建数组对象，在堆内存开辟3个int</li>
+<li>arr是变量，在栈中，存储为堆内存的地址</li>
+</ul>
+</li>
+<li>多个数组变量只向同一数组对象<ul>
+<li>数组变量储存的是同一地址</li>
+<li>用任意数组变量修改数组内元素，其他均受影响</li>
+</ul>
+</li>
+<li>存null表示没有指向对象，此时不能访问</li>
+</ul>
+<h1 id="06-数组案例：求最值，反转"><a href="#06-数组案例：求最值，反转" class="headerlink" title="06 数组案例：求最值，反转"></a>06 数组案例：求最值，反转</h1><h1 id="07-随机排名，debug"><a href="#07-随机排名，debug" class="headerlink" title="07 随机排名，debug"></a>07 随机排名，debug</h1><ul>
+<li>debug<ul>
+<li>1.断点</li>
+<li>2.右键debug启动</li>
+<li>3.控制一步一步执行</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
@@ -568,7 +636,59 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="01-方法概述"><a href="#01-方法概述" class="headerlink" title="01 方法概述"></a>01 方法概述</h1><h1 id="02-方法定义的其他形式，常见问题"><a href="#02-方法定义的其他形式，常见问题" class="headerlink" title="02 方法定义的其他形式，常见问题"></a>02 方法定义的其他形式，常见问题</h1><h1 id="03-方法的案例讲解"><a href="#03-方法的案例讲解" class="headerlink" title="03 方法的案例讲解"></a>03 方法的案例讲解</h1><h1 id="04-方法在计算机中的执行"><a href="#04-方法在计算机中的执行" class="headerlink" title="04 方法在计算机中的执行"></a>04 方法在计算机中的执行</h1><h1 id="05-方法参数传递"><a href="#05-方法参数传递" class="headerlink" title="05 方法参数传递"></a>05 方法参数传递</h1><h1 id="06-参数传递的案例"><a href="#06-参数传递的案例" class="headerlink" title="06 参数传递的案例"></a>06 参数传递的案例</h1><h1 id="07-方法重载，return关键字"><a href="#07-方法重载，return关键字" class="headerlink" title="07 方法重载，return关键字"></a>07 方法重载，return关键字</h1>
+        <h1 id="01-方法概述"><a href="#01-方法概述" class="headerlink" title="01 方法概述"></a>01 方法概述</h1><ul>
+<li><p>方法是一种语法结构,可以把一段代码封装生一个功能，以便重复调用</p>
+</li>
+<li><p>完整格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名（形参列表）&#123;</span><br><span class="line">	功能代码</span><br><span class="line">	return 返回值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行：方法名称（实参）；</p>
+</li>
+<li><p>好处</p>
+<ul>
+<li>1.提高代码复用性</li>
+<li>2.提高开发效率</li>
+<li>3.使程序逻辑更加清晰</li>
+</ul>
+</li>
+</ul>
+<h1 id="02-方法定义的其他形式，常见问题"><a href="#02-方法定义的其他形式，常见问题" class="headerlink" title="02 方法定义的其他形式，常见问题"></a>02 方法定义的其他形式，常见问题</h1><ul>
+<li>不需要接受数据：取消形参，不输实参</li>
+<li>不需要返回数据：取消返回值，类型写void</li>
+<li>常见问题<ul>
+<li>方法在类的位置无所谓，但不能在方法中定义方法、</li>
+<li>返回值写void时不能return 数据；除外都要return 对应类型数据</li>
+<li>return 之后代码无效</li>
+<li>方法不调用不会执行，实参严格匹配形参列表</li>
+<li>有返回值的方法<ul>
+<li>1.可以定义变量接受结果</li>
+<li>2.直接输出调用</li>
+<li>3.直接调用</li>
+</ul>
+</li>
+<li>无返回值的方法<ul>
+<li>只能直接调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="03-方法的案例讲解"><a href="#03-方法的案例讲解" class="headerlink" title="03 方法的案例讲解"></a>03 方法的案例讲解</h1><ul>
+<li>定义方法时关注的重点<ul>
+<li>是否接受数据（决定形参列表）</li>
+<li>是否返回数据（决定返回值类型）</li>
+</ul>
+</li>
+</ul>
+<h1 id="04-方法在计算机中的执行"><a href="#04-方法在计算机中的执行" class="headerlink" title="04 方法在计算机中的执行"></a>04 方法在计算机中的执行</h1><ul>
+<li>方法的运行区域在栈内存</li>
+<li>栈的特点：先进后出</li>
+<li>方法为什么要在栈中运行自己：保证方法调用完另一个方法时可以回来</li>
+</ul>
+<h1 id="05-方法参数传递"><a href="#05-方法参数传递" class="headerlink" title="05 方法参数传递"></a>05 方法参数传递</h1><ul>
+<li>值传递，</li>
+</ul>
+<h1 id="06-参数传递的案例"><a href="#06-参数传递的案例" class="headerlink" title="06 参数传递的案例"></a>06 参数传递的案例</h1><h1 id="07-方法重载，return关键字"><a href="#07-方法重载，return关键字" class="headerlink" title="07 方法重载，return关键字"></a>07 方法重载，return关键字</h1>
       
     </div>
     <footer class="article-footer">
@@ -688,7 +808,63 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="02-分支结构：if，switch，switch穿透性"><a href="#02-分支结构：if，switch，switch穿透性" class="headerlink" title="02 分支结构：if，switch，switch穿透性"></a>02 分支结构：if，switch，switch穿透性</h1><h1 id="03-循环结构：for循环，for循环案例"><a href="#03-循环结构：for循环，for循环案例" class="headerlink" title="03 循环结构：for循环，for循环案例"></a>03 循环结构：for循环，for循环案例</h1><h1 id="04-循环结构：while循环，珠穆朗玛峰案例"><a href="#04-循环结构：while循环，珠穆朗玛峰案例" class="headerlink" title="04 循环结构：while循环，珠穆朗玛峰案例"></a>04 循环结构：while循环，珠穆朗玛峰案例</h1><h1 id="05-循环结构：do-while循环"><a href="#05-循环结构：do-while循环" class="headerlink" title="05 循环结构：do-while循环"></a>05 循环结构：do-while循环</h1><h1 id="06-死循环，循环嵌套"><a href="#06-死循环，循环嵌套" class="headerlink" title="06 死循环，循环嵌套"></a>06 死循环，循环嵌套</h1><h1 id="07-跳转关键字：break，continue"><a href="#07-跳转关键字：break，continue" class="headerlink" title="07 跳转关键字：break，continue"></a>07 跳转关键字：break，continue</h1><h1 id="08-随机数Random，Random案例"><a href="#08-随机数Random，Random案例" class="headerlink" title="08 随机数Random，Random案例"></a>08 随机数Random，Random案例</h1>
+        <h1 id="02-分支结构：if，switch，switch穿透性"><a href="#02-分支结构：if，switch，switch穿透性" class="headerlink" title="02 分支结构：if，switch，switch穿透性"></a>02 分支结构：if，switch，switch穿透性</h1><ul>
+<li>if可以根据条件选择执行某段程序</li>
+<li>可以写作<ul>
+<li>if</li>
+<li>if else</li>
+<li>if else<ul>
+<li>if else…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>if泛用性强于swtich，switch在范围内性能较好</li>
+<li>switch注意事项<ul>
+<li>支持byte,short,int,char,枚举,String；不支持double,float,long</li>
+<li>case只能是字面量不能是变量，不能重复</li>
+<li>正常使用要写break</li>
+</ul>
+</li>
+<li>穿透性可用于多种入口的情形，简化代码</li>
+</ul>
+<h1 id="03-循环结构：for循环，for循环案例"><a href="#03-循环结构：for循环，for循环案例" class="headerlink" title="03 循环结构：for循环，for循环案例"></a>03 循环结构：for循环，for循环案例</h1><ul>
+<li>for（初始化；循环条件；迭代语句）{循环内容}</li>
+<li>应用<ul>
+<li>重复劳动</li>
+<li>灵活执行</li>
+</ul>
+</li>
+</ul>
+<h1 id="04-循环结构：while循环，珠穆朗玛峰案例"><a href="#04-循环结构：while循环，珠穆朗玛峰案例" class="headerlink" title="04 循环结构：while循环，珠穆朗玛峰案例"></a>04 循环结构：while循环，珠穆朗玛峰案例</h1><ul>
+<li>while（条件）{循环；迭代}</li>
+<li>while与for<ul>
+<li>功能一致</li>
+<li>具体次数用for，不确定用while</li>
+</ul>
+</li>
+</ul>
+<h1 id="05-循环结构：do-while循环"><a href="#05-循环结构：do-while循环" class="headerlink" title="05 循环结构：do-while循环"></a>05 循环结构：do-while循环</h1><ul>
+<li>do-while是执行后判断，可以保证至少执行一次</li>
+</ul>
+<h1 id="06-死循环，循环嵌套"><a href="#06-死循环，循环嵌套" class="headerlink" title="06 死循环，循环嵌套"></a>06 死循环，循环嵌套</h1><ul>
+<li>死循环可用于服务器程序</li>
+<li>嵌套解决复杂问题</li>
+</ul>
+<h1 id="07-跳转关键字：break，continue"><a href="#07-跳转关键字：break，continue" class="headerlink" title="07 跳转关键字：break，continue"></a>07 跳转关键字：break，continue</h1><ul>
+<li>break结束当前循环，结束swtich分支</li>
+<li>continue前往下次循环</li>
+</ul>
+<h1 id="08-随机数Random，Random案例"><a href="#08-随机数Random，Random案例" class="headerlink" title="08 随机数Random，Random案例"></a>08 随机数Random，Random案例</h1><ul>
+<li>Random<ul>
+<li>1.导包：import java.util.Random;</li>
+<li>2.Random r&#x3D;new Random();</li>
+<li>3.int num&#x3D;r.nextInt(10);</li>
+</ul>
+</li>
+<li>生成65-91：r.nextInt(27)+65;</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">

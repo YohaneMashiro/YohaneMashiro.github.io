@@ -6,15 +6,15 @@
   
   <title>Java方法 | sTorYs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="01 方法概述02 方法定义的其他形式，常见问题03 方法的案例讲解04 方法在计算机中的执行05 方法参数传递06 参数传递的案例07 方法重载，return关键字">
+  <meta name="description" content="01 方法概述 方法是一种语法结构,可以把一段代码封装生一个功能，以便重复调用  完整格式 1234修饰符 返回值类型 方法名（形参列表）&amp;#123;	功能代码	return 返回值;&amp;#125;  执行：方法名称（实参）；  好处  1.提高代码复用性 2.提高开发效率 3.使程序逻辑更加清晰    02 方法定义的其他形式，常见问题 不需要接受数据：取消形参，不输实参 不需要返回数据：取消返回">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java方法">
 <meta property="og:url" content="https://yohanemashiro.github.io/2023/10/15/java%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="sTorYs">
-<meta property="og:description" content="01 方法概述02 方法定义的其他形式，常见问题03 方法的案例讲解04 方法在计算机中的执行05 方法参数传递06 参数传递的案例07 方法重载，return关键字">
+<meta property="og:description" content="01 方法概述 方法是一种语法结构,可以把一段代码封装生一个功能，以便重复调用  完整格式 1234修饰符 返回值类型 方法名（形参列表）&amp;#123;	功能代码	return 返回值;&amp;#125;  执行：方法名称（实参）；  好处  1.提高代码复用性 2.提高开发效率 3.使程序逻辑更加清晰    02 方法定义的其他形式，常见问题 不需要接受数据：取消形参，不输实参 不需要返回数据：取消返回">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-15T09:27:02.436Z">
+<meta property="article:modified_time" content="2023-10-15T15:19:01.993Z">
 <meta property="article:author" content="Shirohao">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -102,7 +102,59 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="01-方法概述"><a href="#01-方法概述" class="headerlink" title="01 方法概述"></a>01 方法概述</h1><h1 id="02-方法定义的其他形式，常见问题"><a href="#02-方法定义的其他形式，常见问题" class="headerlink" title="02 方法定义的其他形式，常见问题"></a>02 方法定义的其他形式，常见问题</h1><h1 id="03-方法的案例讲解"><a href="#03-方法的案例讲解" class="headerlink" title="03 方法的案例讲解"></a>03 方法的案例讲解</h1><h1 id="04-方法在计算机中的执行"><a href="#04-方法在计算机中的执行" class="headerlink" title="04 方法在计算机中的执行"></a>04 方法在计算机中的执行</h1><h1 id="05-方法参数传递"><a href="#05-方法参数传递" class="headerlink" title="05 方法参数传递"></a>05 方法参数传递</h1><h1 id="06-参数传递的案例"><a href="#06-参数传递的案例" class="headerlink" title="06 参数传递的案例"></a>06 参数传递的案例</h1><h1 id="07-方法重载，return关键字"><a href="#07-方法重载，return关键字" class="headerlink" title="07 方法重载，return关键字"></a>07 方法重载，return关键字</h1>
+        <h1 id="01-方法概述"><a href="#01-方法概述" class="headerlink" title="01 方法概述"></a>01 方法概述</h1><ul>
+<li><p>方法是一种语法结构,可以把一段代码封装生一个功能，以便重复调用</p>
+</li>
+<li><p>完整格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名（形参列表）&#123;</span><br><span class="line">	功能代码</span><br><span class="line">	return 返回值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行：方法名称（实参）；</p>
+</li>
+<li><p>好处</p>
+<ul>
+<li>1.提高代码复用性</li>
+<li>2.提高开发效率</li>
+<li>3.使程序逻辑更加清晰</li>
+</ul>
+</li>
+</ul>
+<h1 id="02-方法定义的其他形式，常见问题"><a href="#02-方法定义的其他形式，常见问题" class="headerlink" title="02 方法定义的其他形式，常见问题"></a>02 方法定义的其他形式，常见问题</h1><ul>
+<li>不需要接受数据：取消形参，不输实参</li>
+<li>不需要返回数据：取消返回值，类型写void</li>
+<li>常见问题<ul>
+<li>方法在类的位置无所谓，但不能在方法中定义方法、</li>
+<li>返回值写void时不能return 数据；除外都要return 对应类型数据</li>
+<li>return 之后代码无效</li>
+<li>方法不调用不会执行，实参严格匹配形参列表</li>
+<li>有返回值的方法<ul>
+<li>1.可以定义变量接受结果</li>
+<li>2.直接输出调用</li>
+<li>3.直接调用</li>
+</ul>
+</li>
+<li>无返回值的方法<ul>
+<li>只能直接调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="03-方法的案例讲解"><a href="#03-方法的案例讲解" class="headerlink" title="03 方法的案例讲解"></a>03 方法的案例讲解</h1><ul>
+<li>定义方法时关注的重点<ul>
+<li>是否接受数据（决定形参列表）</li>
+<li>是否返回数据（决定返回值类型）</li>
+</ul>
+</li>
+</ul>
+<h1 id="04-方法在计算机中的执行"><a href="#04-方法在计算机中的执行" class="headerlink" title="04 方法在计算机中的执行"></a>04 方法在计算机中的执行</h1><ul>
+<li>方法的运行区域在栈内存</li>
+<li>栈的特点：先进后出</li>
+<li>方法为什么要在栈中运行自己：保证方法调用完另一个方法时可以回来</li>
+</ul>
+<h1 id="05-方法参数传递"><a href="#05-方法参数传递" class="headerlink" title="05 方法参数传递"></a>05 方法参数传递</h1><ul>
+<li>值传递，</li>
+</ul>
+<h1 id="06-参数传递的案例"><a href="#06-参数传递的案例" class="headerlink" title="06 参数传递的案例"></a>06 参数传递的案例</h1><h1 id="07-方法重载，return关键字"><a href="#07-方法重载，return关键字" class="headerlink" title="07 方法重载，return关键字"></a>07 方法重载，return关键字</h1>
       
     </div>
     <footer class="article-footer">
