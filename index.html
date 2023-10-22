@@ -79,6 +79,105 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Maven" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/10/22/Maven/" class="article-date">
+  <time class="dt-published" datetime="2023-10-21T16:00:00.000Z" itemprop="datePublished">2023-10-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/10/22/Maven/">Maven</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="01-Maven简介-Maven的概念与作用"><a href="#01-Maven简介-Maven的概念与作用" class="headerlink" title="01-Maven简介-Maven的概念与作用"></a>01-Maven简介-Maven的概念与作用</h1><ul>
+<li>Maven的本质是一个项目管理工具，将项目开发和管理过程抽象成一个项目对象模型（POM）</li>
+<li>Maven的作用<ul>
+<li>项目构建：提供标准，跨平台的自动化项目构建方式</li>
+<li>依赖管理：方便快捷的管理项目依赖的资源（jar包），避免资源间的版本冲突问题</li>
+<li>同一开发结构：提供标准，统一的项目结构</li>
+</ul>
+</li>
+</ul>
+<h1 id="02-Maven下载与安装-下载安装与环境变量配置"><a href="#02-Maven下载与安装-下载安装与环境变量配置" class="headerlink" title="02-Maven下载与安装-下载安装与环境变量配置"></a>02-Maven下载与安装-下载安装与环境变量配置</h1><ul>
+<li><p>官网-&gt;解压即可</p>
+</li>
+<li><p>需要配置JAVA_HOME和MAVEN_HOME</p>
+<ul>
+<li><p>配置PATH即可</p>
+</li>
+<li><pre><code>$ mvn //验证
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 03-Maven基本概念-仓库</span><br><span class="line"></span><br><span class="line">- 用于存储资源，包含各种jar包</span><br><span class="line">- 分类</span><br><span class="line">  - 本地仓库：自己电脑上存储资源的仓库，连接远程仓库获取资源</span><br><span class="line">  - 远程仓库：非本机电脑上的藏库，为本地仓库提供资源</span><br><span class="line">    - 中央仓库：Maven团队维护，存储所有资源的仓库</span><br><span class="line">    - 私服：部门/公司范围内存储资源的仓库，从中央仓库获取资源</span><br><span class="line">- 私服：</span><br><span class="line">  - 保存具有版权的资源，包含购买或自主研发的jar</span><br><span class="line">    - 中央仓库中的jar都是开源的，不能存储具有版权的资源</span><br><span class="line">  - 一定范围内共享资源，仅对内部开放，不对外共享</span><br><span class="line"></span><br><span class="line"># 04-Maven基本概念-坐标</span><br><span class="line"></span><br><span class="line">- Maven中的坐标用于描述仓库中资源的位置</span><br><span class="line">- 主要组成</span><br><span class="line">  - groupId：定义当前Maven项目隶属组织名称（例如org.mybatis）</span><br><span class="line">  - artifactId：定义当前Maven项目名称（例如CRM，SMS）</span><br><span class="line">  - version：定义当前项目版本号</span><br><span class="line">  - packaging：定义改项目的打包方式</span><br><span class="line">- 检索网站：mvnrepository.com</span><br><span class="line">- 使用唯一标识，唯一性定位资源位置，通过改标识可以将资源的识别与下载工作交由机器完成</span><br><span class="line"></span><br><span class="line"># 05-Maven基本概念-仓库配置</span><br><span class="line"></span><br><span class="line">- 本地仓库</span><br><span class="line"></span><br><span class="line">  - 默认位置&lt;localRepository&gt;\$&#123;user.home&#125;/.m2.repository&lt;/localRepository&gt;</span><br><span class="line">  - 自定义位置&lt;localRepository&gt;D:\maven\repository&lt;/localRepository&gt;</span><br><span class="line"></span><br><span class="line">- 远程仓库：先在jar包里找到pom-4.0.0.xml</span><br><span class="line"></span><br><span class="line">  - 找到central</span><br><span class="line"></span><br><span class="line">  - 使用阿里镜像：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+&lt;mirror&gt;
+      &lt;id&gt;nexus-aliyun&lt;/id&gt;
+      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+      &lt;name&gt;Nexus aliyun&lt;/name&gt;
+      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
+    &lt;/mirror&gt;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 06-第一个Maven程序-Maven项目结构</span><br><span class="line"></span><br><span class="line">- 目录结构project/src/main/java&amp;resources + project/src/test/java&amp;resources + src同层的pom.xml</span><br><span class="line"></span><br><span class="line">- pom.xml</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
+
+&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+&lt;groupId&gt;com.itheima&lt;/groupId&gt;
+&lt;artifactId&gt;project-java&lt;/artifactId&gt;
+&lt;version&gt;1.0&lt;/version&gt;
+&lt;packaging&gt;jar&lt;/packaging&gt;
+
+&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;4.12&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+</li>
+</ul>
+</project>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"># 07-第一个Maven程序-Maven项目构建</span><br><span class="line"></span><br><span class="line">- 编译</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$ mvn compile
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 清理</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$ mvn lean
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 测试：后续有report文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$ mvn test
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 打包</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$ mvn package
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 安装到本地仓库：在本地仓库可以查看到上一步的jar包</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$ mvn install
+```</li>
+</ul>
+<h1 id="08-第一个Maven程序-插件创建Maven工程"><a href="#08-第一个Maven程序-插件创建Maven工程" class="headerlink" title="08-第一个Maven程序-插件创建Maven工程"></a>08-第一个Maven程序-插件创建Maven工程</h1><h1 id="09-第一个Maven程序-Idea版创建Maven工程"><a href="#09-第一个Maven程序-Idea版创建Maven工程" class="headerlink" title="09-第一个Maven程序-Idea版创建Maven工程"></a>09-第一个Maven程序-Idea版创建Maven工程</h1><h1 id="10-第一个Maven程序-Idea使用模板（骨架）创建Maven工程"><a href="#10-第一个Maven程序-Idea使用模板（骨架）创建Maven工程" class="headerlink" title="10-第一个Maven程序-Idea使用模板（骨架）创建Maven工程"></a>10-第一个Maven程序-Idea使用模板（骨架）创建Maven工程</h1><h1 id="11-第一个Maven程序-tomcat插件安装与web工程启动"><a href="#11-第一个Maven程序-tomcat插件安装与web工程启动" class="headerlink" title="11-第一个Maven程序-tomcat插件安装与web工程启动"></a>11-第一个Maven程序-tomcat插件安装与web工程启动</h1><h1 id="12-依赖管理-依赖配置与依赖传递"><a href="#12-依赖管理-依赖配置与依赖传递" class="headerlink" title="12-依赖管理-依赖配置与依赖传递"></a>12-依赖管理-依赖配置与依赖传递</h1><h1 id="13-依赖管理-依赖范围"><a href="#13-依赖管理-依赖范围" class="headerlink" title="13-依赖管理-依赖范围"></a>13-依赖管理-依赖范围</h1><h1 id="14-生命周期与插件-生命周期与插件"><a href="#14-生命周期与插件-生命周期与插件" class="headerlink" title="14-生命周期与插件-生命周期与插件"></a>14-生命周期与插件-生命周期与插件</h1><h1 id="15-分模块开发与设计-模块拆分思想与pojo模块拆分"><a href="#15-分模块开发与设计-模块拆分思想与pojo模块拆分" class="headerlink" title="15-分模块开发与设计-模块拆分思想与pojo模块拆分"></a>15-分模块开发与设计-模块拆分思想与pojo模块拆分</h1><h1 id="16-分模块开发与设计-dao模块拆分"><a href="#16-分模块开发与设计-dao模块拆分" class="headerlink" title="16-分模块开发与设计-dao模块拆分"></a>16-分模块开发与设计-dao模块拆分</h1><h1 id="17-分模块开发与设计-sevice模块拆分"><a href="#17-分模块开发与设计-sevice模块拆分" class="headerlink" title="17-分模块开发与设计-sevice模块拆分"></a>17-分模块开发与设计-sevice模块拆分</h1><h1 id="18-分模块开发与设计-controller模块拆分"><a href="#18-分模块开发与设计-controller模块拆分" class="headerlink" title="18-分模块开发与设计-controller模块拆分"></a>18-分模块开发与设计-controller模块拆分</h1><h1 id="19-聚合-模块聚合"><a href="#19-聚合-模块聚合" class="headerlink" title="19-聚合-模块聚合"></a>19-聚合-模块聚合</h1><h1 id="20-继承-模块继承"><a href="#20-继承-模块继承" class="headerlink" title="20-继承-模块继承"></a>20-继承-模块继承</h1><h1 id="21-属性-属性定义与使用"><a href="#21-属性-属性定义与使用" class="headerlink" title="21-属性-属性定义与使用"></a>21-属性-属性定义与使用</h1><h1 id="22-版本管理-版本管理"><a href="#22-版本管理-版本管理" class="headerlink" title="22-版本管理-版本管理"></a>22-版本管理-版本管理</h1><h1 id="23-资源配置-资源加载属性值"><a href="#23-资源配置-资源加载属性值" class="headerlink" title="23-资源配置-资源加载属性值"></a>23-资源配置-资源加载属性值</h1><h1 id="24-环境配置-多环境配置"><a href="#24-环境配置-多环境配置" class="headerlink" title="24-环境配置-多环境配置"></a>24-环境配置-多环境配置</h1><h1 id="25-跳过测试-跳过测试的三种方式"><a href="#25-跳过测试-跳过测试的三种方式" class="headerlink" title="25-跳过测试-跳过测试的三种方式"></a>25-跳过测试-跳过测试的三种方式</h1><h1 id="26-私服-nexus服务器安装与启动"><a href="#26-私服-nexus服务器安装与启动" class="headerlink" title="26-私服-nexus服务器安装与启动"></a>26-私服-nexus服务器安装与启动</h1><h1 id="27-私服-仓库分类与动手上传组件"><a href="#27-私服-仓库分类与动手上传组件" class="headerlink" title="27-私服-仓库分类与动手上传组件"></a>27-私服-仓库分类与动手上传组件</h1><h1 id="28-私服-本地仓库访问私服"><a href="#28-私服-本地仓库访问私服" class="headerlink" title="28-私服-本地仓库访问私服"></a>28-私服-本地仓库访问私服</h1><h1 id="29-私服-idea访问私服与组件上传"><a href="#29-私服-idea访问私服与组件上传" class="headerlink" title="29-私服-idea访问私服与组件上传"></a>29-私服-idea访问私服与组件上传</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2023/10/22/Maven/" data-id="clo17m9ma0000roszco5ocdye" data-title="Maven" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-预备队week2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/10/21/%E9%A2%84%E5%A4%87%E9%98%9Fweek2/" class="article-date">
@@ -1148,46 +1247,6 @@
 
 
   
-    <article id="post-面向对象基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time class="dt-published" datetime="2023-10-14T16:00:00.000Z" itemprop="datePublished">2023-10-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/">面向对象基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="01-入门，彻底搞懂对象"><a href="#01-入门，彻底搞懂对象" class="headerlink" title="01 入门，彻底搞懂对象"></a>01 入门，彻底搞懂对象</h1><h1 id="02-对象执行原理，类与对象注意事项"><a href="#02-对象执行原理，类与对象注意事项" class="headerlink" title="02 对象执行原理，类与对象注意事项"></a>02 对象执行原理，类与对象注意事项</h1><h1 id="03-this关键字"><a href="#03-this关键字" class="headerlink" title="03 this关键字"></a>03 this关键字</h1><h1 id="04-构造器"><a href="#04-构造器" class="headerlink" title="04 构造器"></a>04 构造器</h1><h1 id="05-封装，实体JavaBean"><a href="#05-封装，实体JavaBean" class="headerlink" title="05 封装，实体JavaBean"></a>05 封装，实体JavaBean</h1><h1 id="综合案例，成员变量，局部变量的区别"><a href="#综合案例，成员变量，局部变量的区别" class="headerlink" title="综合案例，成员变量，局部变量的区别"></a>综合案例，成员变量，局部变量的区别</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yohanemashiro.github.io/2023/10/15/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/" data-id="clnzwzoos000kvgsz817sht98" data-title="面向对象基础" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1206,7 +1265,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
     </div>
   </div>
 
@@ -1216,7 +1275,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
     </div>
   </div>
 
@@ -1238,6 +1297,10 @@
       <ul>
         
           <li>
+            <a href="/2023/10/22/Maven/">Maven</a>
+          </li>
+        
+          <li>
             <a href="/2023/10/21/%E9%A2%84%E5%A4%87%E9%98%9Fweek2/">预备队训练week2</a>
           </li>
         
@@ -1251,10 +1314,6 @@
         
           <li>
             <a href="/2023/10/15/java%E6%96%B9%E6%B3%95/">Java方法</a>
-          </li>
-        
-          <li>
-            <a href="/2023/10/15/java%E6%A1%88%E4%BE%8B/">Java案例</a>
           </li>
         
       </ul>
