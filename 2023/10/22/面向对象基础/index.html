@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>面向对象基础 | sTorYs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="01 入门，彻底搞懂对象 凡事找对象的编程套路，更加符合思维习惯，编程更加直观  对象就是一种特殊的数据结构  对象数用类new出来的，有类就可以创建出对象 123456public class 类名&amp;#123;    1.变量，用来说明对象可以处理什么数据    2.方法，描述对象有什么功能，也就是可以对数据进行什么样的处理&amp;#125;类名 对象名&#x3D;new 类名()  面向对象编程的思想：万物皆">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象基础">
+<meta property="og:url" content="https://yohanemashiro.github.io/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="sTorYs">
+<meta property="og:description" content="01 入门，彻底搞懂对象 凡事找对象的编程套路，更加符合思维习惯，编程更加直观  对象就是一种特殊的数据结构  对象数用类new出来的，有类就可以创建出对象 123456public class 类名&amp;#123;    1.变量，用来说明对象可以处理什么数据    2.方法，描述对象有什么功能，也就是可以对数据进行什么样的处理&amp;#125;类名 对象名&#x3D;new 类名()  面向对象编程的思想：万物皆">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-22T15:15:16.945Z">
+<meta property="article:author" content="Shirohao">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sTorYs" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sTorYs</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">collect the world</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yohanemashiro.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-面向对象基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time class="dt-published" datetime="2023-10-21T16:00:00.000Z" itemprop="datePublished">2023-10-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      面向对象基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="01-入门，彻底搞懂对象"><a href="#01-入门，彻底搞懂对象" class="headerlink" title="01 入门，彻底搞懂对象"></a>01 入门，彻底搞懂对象</h1><ul>
+<li><p>凡事找对象的编程套路，更加符合思维习惯，编程更加直观</p>
+</li>
+<li><p>对象就是一种特殊的数据结构</p>
+</li>
+<li><p>对象数用类new出来的，有类就可以创建出对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class 类名&#123;</span><br><span class="line">    <span class="number">1.</span>变量，用来说明对象可以处理什么数据</span><br><span class="line">    <span class="number">2.</span>方法，描述对象有什么功能，也就是可以对数据进行什么样的处理</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">类名 对象名=<span class="keyword">new</span> 类名()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>面向对象编程的思想：万物皆对象，谁的数据谁处理</p>
+</li>
+</ul>
+<h1 id="02-对象执行原理，类与对象注意事项"><a href="#02-对象执行原理，类与对象注意事项" class="headerlink" title="02 对象执行原理，类与对象注意事项"></a>02 对象执行原理，类与对象注意事项</h1><ul>
+<li>每次Student s&#x3D;new Student（），就是在堆内存中开辟一块内存区域，s变量存储对象的地址</li>
+</ul>
+<h1 id="03-this关键字"><a href="#03-this关键字" class="headerlink" title="03 this关键字"></a>03 this关键字</h1><ul>
+<li>this就是一个变量，可以用在方法中，用来取得当前对象；哪个对象调用方法，this就指向哪个对象，也就是拿到哪个对象</li>
+<li>用于解决对象的成员变量与方法内部变量名称一样时，导致访问冲突问题的</li>
+</ul>
+<h1 id="04-构造器"><a href="#04-构造器" class="headerlink" title="04 构造器"></a>04 构造器</h1><ul>
+<li><p>结构</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">    <span class="comment">/**构造器*/</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span>&#123;</span><br></pre></td></tr></table></figure>
+<pre><code>&#125;
+</code></pre>
+<p>}</p>
+<pre><code>
+</code></pre>
+</li>
+<li><p>构造器的调用</p>
+<ul>
+<li>对象创建时，我们可以指定对象去调用哪个构造器执行</li>
+<li>构造器常用于对象初始化（如完成对象的成员变量的初始化赋值）</li>
+</ul>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li>类在设计时，如果不写构造器，Java会位类自动生成一个无参构造器</li>
+<li>一旦定义了有参构造器，Java就不会帮我们的类生成无参构造器，此时就建议自己手写一个无参构造器</li>
+</ul>
+</li>
+</ul>
+<h1 id="05-封装，实体JavaBean"><a href="#05-封装，实体JavaBean" class="headerlink" title="05 封装，实体JavaBean"></a>05 封装，实体JavaBean</h1><ul>
+<li>封装<ul>
+<li>封装就是用类设计对象处理某一个事物的数据时，应该把要处理的数据以及处理这些数据的方法，设计到一个对象中去</li>
+<li>面向对象的三大特征：封装，继承，多态</li>
+<li>封装的设计规范：合理隐藏，合理暴露</li>
+<li>public修饰公开成员，private修饰隐藏成员</li>
+</ul>
+</li>
+<li>实体类<ul>
+<li>成员变量必须私有，且要为他们提供get&amp;set方法，必须有无参构造器</li>
+<li>仅仅用于保存数据的Java类，可以用于创建对象，保存某个事物的数据</li>
+<li>可以应用于数据与处理相分离的业务模式</li>
+</ul>
+</li>
+</ul>
+<h1 id="综合案例，成员变量，局部变量的区别"><a href="#综合案例，成员变量，局部变量的区别" class="headerlink" title="综合案例，成员变量，局部变量的区别"></a>综合案例，成员变量，局部变量的区别</h1><ul>
+<li>类中的位置不同</li>
+<li>初始化值不同</li>
+<li>内存位置不同</li>
+<li>作用域不同</li>
+<li>生命周期不同</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/" data-id="clo1mxv5y000kzgsz2u0r6s95" data-title="面向对象基础" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/10/22/%E5%B8%B8%E7%94%A8API/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          常用API
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/10/21/%E9%A2%84%E5%A4%87%E9%98%9Fweek2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">预备队训练week2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/22/Maven/">Maven</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/22/java%E6%96%B9%E6%B3%95/">Java方法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/22/java%E6%A1%88%E4%BE%8B/">Java案例</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/22/%E5%B8%B8%E7%94%A8API/">常用API</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/">面向对象基础</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Shirohao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -6,15 +6,15 @@
   
   <title>Java方法 | sTorYs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="01 方法概述 方法是一种语法结构,可以把一段代码封装生一个功能，以便重复调用  完整格式 1234修饰符 返回值类型 方法名（形参列表）&amp;#123;	功能代码	return 返回值;&amp;#125;  执行：方法名称（实参）；  好处  1.提高代码复用性 2.提高开发效率 3.使程序逻辑更加清晰    02 方法定义的其他形式，常见问题 不需要接受数据：取消形参，不输实参 不需要返回数据：取消返回">
+  <meta name="description" content="01 方法概述 方法是一种语法结构，它可以把一段代码封装成一个功能，以便重复调用  完整格式 1234修饰符 返回值类型 方法名（形参列表）&amp;#123;    方法体代码    return 返回值；&amp;#125;  方法执行必须调用  可以提高代码复用性，提高开发效率，程序逻辑清晰   02 方法定义的其他形式，常见问题 不需要接收数据，可以不写形参列表 不需要返回值，申明返回类型为void 常见">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java方法">
-<meta property="og:url" content="https://yohanemashiro.github.io/2023/10/15/java%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:url" content="https://yohanemashiro.github.io/2023/10/22/java%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="sTorYs">
-<meta property="og:description" content="01 方法概述 方法是一种语法结构,可以把一段代码封装生一个功能，以便重复调用  完整格式 1234修饰符 返回值类型 方法名（形参列表）&amp;#123;	功能代码	return 返回值;&amp;#125;  执行：方法名称（实参）；  好处  1.提高代码复用性 2.提高开发效率 3.使程序逻辑更加清晰    02 方法定义的其他形式，常见问题 不需要接受数据：取消形参，不输实参 不需要返回数据：取消返回">
+<meta property="og:description" content="01 方法概述 方法是一种语法结构，它可以把一段代码封装成一个功能，以便重复调用  完整格式 1234修饰符 返回值类型 方法名（形参列表）&amp;#123;    方法体代码    return 返回值；&amp;#125;  方法执行必须调用  可以提高代码复用性，提高开发效率，程序逻辑清晰   02 方法定义的其他形式，常见问题 不需要接收数据，可以不写形参列表 不需要返回值，申明返回类型为void 常见">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-10-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-15T15:19:01.993Z">
+<meta property="article:published_time" content="2023-10-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-22T09:38:04.569Z">
 <meta property="article:author" content="Shirohao">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -82,8 +82,8 @@
       <div class="outer">
         <section id="main"><article id="post-java方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/10/15/java%E6%96%B9%E6%B3%95/" class="article-date">
-  <time class="dt-published" datetime="2023-10-14T16:00:00.000Z" itemprop="datePublished">2023-10-15</time>
+    <a href="/2023/10/22/java%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2023-10-21T16:00:00.000Z" itemprop="datePublished">2023-10-22</time>
 </a>
     
   </div>
@@ -103,36 +103,31 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h1 id="01-方法概述"><a href="#01-方法概述" class="headerlink" title="01 方法概述"></a>01 方法概述</h1><ul>
-<li><p>方法是一种语法结构,可以把一段代码封装生一个功能，以便重复调用</p>
+<li><p>方法是一种语法结构，它可以把一段代码封装成一个功能，以便重复调用</p>
 </li>
 <li><p>完整格式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名（形参列表）&#123;</span><br><span class="line">	功能代码</span><br><span class="line">	return 返回值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名（形参列表）&#123;</span><br><span class="line">    方法体代码</span><br><span class="line">    <span class="keyword">return</span> 返回值；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>执行：方法名称（实参）；</p>
+<li><p>方法执行必须调用</p>
 </li>
-<li><p>好处</p>
-<ul>
-<li>1.提高代码复用性</li>
-<li>2.提高开发效率</li>
-<li>3.使程序逻辑更加清晰</li>
-</ul>
+<li><p>可以提高代码复用性，提高开发效率，程序逻辑清晰</p>
 </li>
 </ul>
 <h1 id="02-方法定义的其他形式，常见问题"><a href="#02-方法定义的其他形式，常见问题" class="headerlink" title="02 方法定义的其他形式，常见问题"></a>02 方法定义的其他形式，常见问题</h1><ul>
-<li>不需要接受数据：取消形参，不输实参</li>
-<li>不需要返回数据：取消返回值，类型写void</li>
+<li>不需要接收数据，可以不写形参列表</li>
+<li>不需要返回值，申明返回类型为void</li>
 <li>常见问题<ul>
-<li>方法在类的位置无所谓，但不能在方法中定义方法、</li>
-<li>返回值写void时不能return 数据；除外都要return 对应类型数据</li>
-<li>return 之后代码无效</li>
-<li>方法不调用不会执行，实参严格匹配形参列表</li>
-<li>有返回值的方法<ul>
-<li>1.可以定义变量接受结果</li>
-<li>2.直接输出调用</li>
-<li>3.直接调用</li>
+<li>方法在类中的位置无所谓，但是不能方法中定义方法</li>
+<li>void类型的方法不能return数据，其他类型的方法必须return数据</li>
+<li>return下不能写代码</li>
+<li>不调用不执行，要调用需要严格匹配参数情况</li>
+<li>调用有返回值的方法<ul>
+<li>定义变量接收结果</li>
+<li>直接输出调用</li>
+<li>直接调用</li>
 </ul>
 </li>
-<li>无返回值的方法<ul>
+<li>调用无返回值的方法<ul>
 <li>只能直接调用</li>
 </ul>
 </li>
@@ -140,25 +135,40 @@
 </li>
 </ul>
 <h1 id="03-方法的案例讲解"><a href="#03-方法的案例讲解" class="headerlink" title="03 方法的案例讲解"></a>03 方法的案例讲解</h1><ul>
-<li>定义方法时关注的重点<ul>
-<li>是否接受数据（决定形参列表）</li>
-<li>是否返回数据（决定返回值类型）</li>
+<li>关注是否接收数据，关注是否返回数据</li>
+</ul>
+<h1 id="04-方法在计算机中的执行"><a href="#04-方法在计算机中的执行" class="headerlink" title="04 方法在计算机中的执行"></a>04 方法在计算机中的执行</h1><ul>
+<li>方法运行区域在栈内存</li>
+<li>先进后出是栈的特点</li>
+<li>使用栈，保证一个方法调用完另一个方法后可以回来</li>
+</ul>
+<h1 id="05-方法参数传递"><a href="#05-方法参数传递" class="headerlink" title="05 方法参数传递"></a>05 方法参数传递</h1><ul>
+<li>值传递：传输的是实参存储的值的副本</li>
+<li>实参：在方法内部定义的变量</li>
+<li>形参：以方法为例，就是方法定义时的变量</li>
+<li>基本类型和引用类型在参数传递时的异同<ul>
+<li>都是值传递</li>
+<li>基本类型的参数传递是数据值，引用类型的参数传递是地址值</li>
 </ul>
 </li>
 </ul>
-<h1 id="04-方法在计算机中的执行"><a href="#04-方法在计算机中的执行" class="headerlink" title="04 方法在计算机中的执行"></a>04 方法在计算机中的执行</h1><ul>
-<li>方法的运行区域在栈内存</li>
-<li>栈的特点：先进后出</li>
-<li>方法为什么要在栈中运行自己：保证方法调用完另一个方法时可以回来</li>
+<h1 id="06-参数传递的案例"><a href="#06-参数传递的案例" class="headerlink" title="06 参数传递的案例"></a>06 参数传递的案例</h1><h1 id="07-方法重载，return关键字"><a href="#07-方法重载，return关键字" class="headerlink" title="07 方法重载，return关键字"></a>07 方法重载，return关键字</h1><ul>
+<li>一个类中，多个方法的名称相同，形参列表不同，此时方法重载</li>
+<li>注意事项<ul>
+<li>一个类中，只要一些方法名称相同，形参列表不同，那么就是重载了</li>
+<li>形参列表不同：形参的个数，类型，顺序不同，不关心形参的名称</li>
 </ul>
-<h1 id="05-方法参数传递"><a href="#05-方法参数传递" class="headerlink" title="05 方法参数传递"></a>05 方法参数传递</h1><ul>
-<li>值传递，</li>
+</li>
+<li>应用场景：需要为一类业务提供多种解决方案</li>
+<li>return；跳出并立即结束所在方法的执行</li>
+<li>break；跳出并技术当前所在循环的执行</li>
+<li>continue：结束当前所在循环的当次继续，进入下一次执行</li>
 </ul>
-<h1 id="06-参数传递的案例"><a href="#06-参数传递的案例" class="headerlink" title="06 参数传递的案例"></a>06 参数传递的案例</h1><h1 id="07-方法重载，return关键字"><a href="#07-方法重载，return关键字" class="headerlink" title="07 方法重载，return关键字"></a>07 方法重载，return关键字</h1>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yohanemashiro.github.io/2023/10/15/java%E6%96%B9%E6%B3%95/" data-id="clnzwzoon0006vgszer8e5rq8" data-title="Java方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://yohanemashiro.github.io/2023/10/22/java%E6%96%B9%E6%B3%95/" data-id="clo1mxv5v000azgszdzdj3kk9" data-title="Java方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -170,17 +180,17 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/10/15/java%E6%95%B0%E7%BB%84/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/10/22/Maven/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
-          Java数组
+          Maven
         
       </div>
     </a>
   
   
-    <a href="/2023/10/15/java%E6%A1%88%E4%BE%8B/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/10/22/java%E6%A1%88%E4%BE%8B/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
       <div class="article-nav-title">Java案例</div>
     </a>
@@ -238,19 +248,19 @@
           </li>
         
           <li>
-            <a href="/2023/10/21/%E9%A2%84%E5%A4%87%E9%98%9Fweek2/">预备队训练week2</a>
+            <a href="/2023/10/22/java%E6%96%B9%E6%B3%95/">Java方法</a>
           </li>
         
           <li>
-            <a href="/2023/10/15/java%E5%85%A5%E9%97%A8/">Java入门</a>
+            <a href="/2023/10/22/java%E6%A1%88%E4%BE%8B/">Java案例</a>
           </li>
         
           <li>
-            <a href="/2023/10/15/java%E6%95%B0%E7%BB%84/">Java数组</a>
+            <a href="/2023/10/22/%E5%B8%B8%E7%94%A8API/">常用API</a>
           </li>
         
           <li>
-            <a href="/2023/10/15/java%E6%96%B9%E6%B3%95/">Java方法</a>
+            <a href="/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/">面向对象基础</a>
           </li>
         
       </ul>

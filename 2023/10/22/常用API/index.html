@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>常用API | sTorYs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="01 包 包时分门别类管理程序的  建包格式 1234package com.itheima.javabean;public class Student&amp;#123;    &amp;#125;  注意事项  调用的自己所在包的其他程序，可以直接调用 调用其他包下的程序，不许先导包后访问  1import 包名.类名   调用Java提供的程序，也需要先导包才可是使用；但是Java.lang包下的程序时不需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用API">
+<meta property="og:url" content="https://yohanemashiro.github.io/2023/10/22/%E5%B8%B8%E7%94%A8API/index.html">
+<meta property="og:site_name" content="sTorYs">
+<meta property="og:description" content="01 包 包时分门别类管理程序的  建包格式 1234package com.itheima.javabean;public class Student&amp;#123;    &amp;#125;  注意事项  调用的自己所在包的其他程序，可以直接调用 调用其他包下的程序，不许先导包后访问  1import 包名.类名   调用Java提供的程序，也需要先导包才可是使用；但是Java.lang包下的程序时不需">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-22T15:39:40.751Z">
+<meta property="article:author" content="Shirohao">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sTorYs" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sTorYs</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">collect the world</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yohanemashiro.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-常用API" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/10/22/%E5%B8%B8%E7%94%A8API/" class="article-date">
+  <time class="dt-published" datetime="2023-10-21T16:00:00.000Z" itemprop="datePublished">2023-10-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      常用API
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="01-包"><a href="#01-包" class="headerlink" title="01 包"></a>01 包</h1><ul>
+<li><p>包时分门别类管理程序的</p>
+</li>
+<li><p>建包格式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.javabean;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li>调用的自己所在包的其他程序，可以直接调用</li>
+<li>调用其他包下的程序，不许先导包后访问</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 包名.类名</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>调用Java提供的程序，也需要先导包才可是使用；但是Java.lang包下的程序时不需要导包的</li>
+<li>调用多个不同包下的同名程序，只能导入一个程序，另一个需要带包名访问</li>
+</ul>
+</li>
+</ul>
+<h1 id="02-String，API"><a href="#02-String，API" class="headerlink" title="02 String，API"></a>02 String，API</h1><ul>
+<li><p>String代表字符串，可以用来创建对象封装字符串数据，并对其进行处理</p>
+</li>
+<li><p>String类的创建方式</p>
+<ul>
+<li>直接使用双引号</li>
+<li>使用new String调用构造器</li>
+</ul>
+</li>
+<li><p>String常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">length</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">char</span> <span class="title function_">charAt</span><span class="params">(<span class="type">int</span> index)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">char</span>[] toCharArray()</span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object anObject)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equalsIgnoreCase</span><span class="params">(String anotherString)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">substring</span><span class="params">(<span class="type">int</span> beginIndex,<span class="type">int</span> endIndex)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">substring</span><span class="params">(<span class="type">int</span> beginIndex)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">replace</span><span class="params">(CharSequence target,CharSequence replacement)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">contain</span><span class="params">(CharSequence s)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">startsWith</span><span class="params">(String prefix)</span></span><br><span class="line"><span class="keyword">public</span> String[] split(String regex)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="03-String的注意事项"><a href="#03-String的注意事项" class="headerlink" title="03 String的注意事项"></a>03 String的注意事项</h1><ul>
+<li>String对象的内容不可更改，称为不可变字符串对象</li>
+<li>只要以”…”方式写出的字符串对象，会存储到字符串常量池，且相同内同的字符串只存储一份；但通过new创建的字符串都会产生一个新的对象在堆内存中</li>
+</ul>
+<h1 id="04-String案例"><a href="#04-String案例" class="headerlink" title="04 String案例"></a>04 String案例</h1><ul>
+<li>字符串比较时<ul>
+<li>&#x3D;&#x3D;是比较地址</li>
+<li>实际字符串使用equals&#x2F;equalsIgnoreCase方法</li>
+</ul>
+</li>
+</ul>
+<h1 id="05-ArrayList概述，使用"><a href="#05-ArrayList概述，使用" class="headerlink" title="05 ArrayList概述，使用"></a>05 ArrayList概述，使用</h1><h1 id="06-ArrayList的应用案例"><a href="#06-ArrayList的应用案例" class="headerlink" title="06 ArrayList的应用案例"></a>06 ArrayList的应用案例</h1><h1 id="07-ArrayList集合综合案例"><a href="#07-ArrayList集合综合案例" class="headerlink" title="07 ArrayList集合综合案例"></a>07 ArrayList集合综合案例</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2023/10/22/%E5%B8%B8%E7%94%A8API/" data-id="clo1mxv5x000izgszgwzuaoqt" data-title="常用API" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/10/22/java%E6%A1%88%E4%BE%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Java案例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">面向对象基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/22/Maven/">Maven</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/22/java%E6%96%B9%E6%B3%95/">Java方法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/22/java%E6%A1%88%E4%BE%8B/">Java案例</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/22/%E5%B8%B8%E7%94%A8API/">常用API</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/">面向对象基础</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Shirohao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
