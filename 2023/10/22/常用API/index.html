@@ -14,7 +14,7 @@
 <meta property="og:description" content="01 包 包时分门别类管理程序的  建包格式 1234package com.itheima.javabean;public class Student&amp;#123;    &amp;#125;  注意事项  调用的自己所在包的其他程序，可以直接调用 调用其他包下的程序，不许先导包后访问  1import 包名.类名   调用Java提供的程序，也需要先导包才可是使用；但是Java.lang包下的程序时不需">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-22T15:39:40.751Z">
+<meta property="article:modified_time" content="2023-11-06T05:06:56.933Z">
 <meta property="article:author" content="Shirohao">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,28 @@
 </ul>
 </li>
 </ul>
-<h1 id="05-ArrayList概述，使用"><a href="#05-ArrayList概述，使用" class="headerlink" title="05 ArrayList概述，使用"></a>05 ArrayList概述，使用</h1><h1 id="06-ArrayList的应用案例"><a href="#06-ArrayList的应用案例" class="headerlink" title="06 ArrayList的应用案例"></a>06 ArrayList的应用案例</h1><h1 id="07-ArrayList集合综合案例"><a href="#07-ArrayList集合综合案例" class="headerlink" title="07 ArrayList集合综合案例"></a>07 ArrayList集合综合案例</h1>
+<h1 id="05-ArrayList概述，使用"><a href="#05-ArrayList概述，使用" class="headerlink" title="05 ArrayList概述，使用"></a>05 ArrayList概述，使用</h1><ul>
+<li><p>ArrayList<E></p>
+<ul>
+<li>是一种容器，用来存储数据</li>
+<li>集合的大小可变</li>
+<li>是集合中最常用的一种，ArrayList是泛型类，可以约束存储的数据类型</li>
+</ul>
+</li>
+<li><p>构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">ArrayList</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">add</span><span class="params">(E e)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> index,E element)</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">get</span><span class="params">(<span class="type">int</span> index)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">remove</span><span class="params">(<span class="type">int</span> index)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">remove</span><span class="params">(Object o)</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">set</span><span class="params">(<span class="type">int</span> index,E element)</span>    </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="06-ArrayList的应用案例"><a href="#06-ArrayList的应用案例" class="headerlink" title="06 ArrayList的应用案例"></a>06 ArrayList的应用案例</h1><ul>
+<li>遍历元素删除的方法<ul>
+<li>1.顺序遍历，每次删除后i–</li>
+<li>2.逆序遍历，直接删除</li>
+</ul>
+</li>
+</ul>
+<h1 id="07-ArrayList集合综合案例"><a href="#07-ArrayList集合综合案例" class="headerlink" title="07 ArrayList集合综合案例"></a>07 ArrayList集合综合案例</h1>
       
     </div>
     <footer class="article-footer">
@@ -224,7 +245,15 @@
       <ul>
         
           <li>
+            <a href="/2023/11/05/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">项目实战</a>
+          </li>
+        
+          <li>
             <a href="/2023/11/05/%E9%A2%84%E5%A4%87%E9%98%9Fweek4/">预备队训练week4</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%B8%80%EF%BC%89/">面向对象高级（一）</a>
           </li>
         
           <li>
@@ -233,14 +262,6 @@
         
           <li>
             <a href="/2023/10/22/Maven/">Maven</a>
-          </li>
-        
-          <li>
-            <a href="/2023/10/22/java%E6%96%B9%E6%B3%95/">Java方法</a>
-          </li>
-        
-          <li>
-            <a href="/2023/10/22/java%E6%A1%88%E4%BE%8B/">Java案例</a>
           </li>
         
       </ul>
