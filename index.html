@@ -207,6 +207,174 @@
 
 
   
+    <article id="post-面向对象高级（二）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/12/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%BA%8C%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2023-11-11T16:00:00.000Z" itemprop="datePublished">2023-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/11/12/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%BA%8C%EF%BC%89/">面向对象高级（二）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="01-多态、使用多态的好处"><a href="#01-多态、使用多态的好处" class="headerlink" title="01 多态、使用多态的好处"></a>01 多态、使用多态的好处</h1><ul>
+<li>多态是在继承&#x2F;实现情况下的一种现象，表现为：对象多态、行为多态</li>
+<li>具体代码体现</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">People p1=<span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">p1.run();</span><br><span class="line"></span><br><span class="line">Poeple p2=<span class="keyword">new</span> <span class="title class_">Teacher</span>();</span><br><span class="line">p2.run();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>多态的前提：有继承&#x2F;实现关系；存在父类引用子类对象；存在方法重写</p>
+</li>
+<li><p>注意事项：多态是对象、行为的多态，java中的成员变量不谈多态</p>
+</li>
+<li><p>使用多态的好处</p>
+<ul>
+<li>在多态形式下，右边对象是解耦合的，便于扩展和维护</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">People p=<span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">p1.run();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>定义方法时，使用父类类型的形参，可以接收一球子类对象，扩展性更强、更便利</li>
+</ul>
+</li>
+<li><p>类型转换</p>
+<ul>
+<li><p>自动类型转换：父类 变量名&#x3D;new子类（）；</p>
+</li>
+<li><p>强制类型转换：子类 变量名&#x3D;new（子类）父类变量；</p>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li>存在继承&#x2F;实现关系就可以在编译阶段进行强制类型转换，编译阶段不会报错</li>
+<li>运行时，如果发现对象的真实类型与强转后的类型不同，就会报类型转换异常（ClassCastException）的错误出来</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">People p=<span class="keyword">new</span> <span class="title class_">Teacher</span>();</span><br><span class="line">Student s=(Student) p;<span class="comment">//java.lang.ClassCastException</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>强转时，java建议：使用instanceof，判断当前对象的真实类型</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="02-final、常量"><a href="#02-final、常量" class="headerlink" title="02 final、常量"></a>02 final、常量</h1><ul>
+<li><p>final</p>
+<ul>
+<li>final是最终的意思，可以修饰类，方法，变量</li>
+<li>修饰类：该类称为最终类，不可以被继承</li>
+<li>修饰方法：该方法为最终方法，不可以被重写</li>
+<li>修饰变量：该变量只能被赋值一次</li>
+</ul>
+</li>
+<li><p>final修饰变量注意事项</p>
+<ul>
+<li>final修饰基本类型的变量，变量存储的数据不能被改变</li>
+<li>final修饰引用类型的变量，变量存储的地址不能被改变</li>
+</ul>
+</li>
+<li><p>常量</p>
+<ul>
+<li>使用了static final修饰的成员变量称为常量</li>
+<li>作用：通常用于记录系统的配置信息</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Constant</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String SCHOOL_NAME</span><br><span class="line">	<span class="comment">//注意，常量使用大写，用下划线连接单词</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用常量记录系统配置信息的优势、执行原理</p>
+<ul>
+<li>代码可读性更好，可维护性也更好</li>
+<li>程序编译后，常量会被“宏替换”：出现常量的地方全部会被替换成其记住的字面量，这样可以保证使用常量和直接使用字面量的性能是一样的</li>
+</ul>
+</li>
+</ul>
+<h1 id="03-抽象类-认识抽象类和其好处"><a href="#03-抽象类-认识抽象类和其好处" class="headerlink" title="03 抽象类-认识抽象类和其好处"></a>03 抽象类-认识抽象类和其好处</h1><ul>
+<li>抽象类和抽象方法都是用abstrac修饰的；抽象方法只有方法签名，不能写方法体</li>
+<li>抽象类的注意事项和特点<ul>
+<li>抽象类中可以不写抽象方法，但又抽象方法的类一定是抽象类</li>
+<li>类有的成员（成员变量、方法、构造器），抽象类都具备</li>
+<li>抽象类不能创建对象，仅作为一种特殊的父类，让子类继承并实现</li>
+<li>一个类继承抽象类，必须重写完抽象类的所有方法，否则这个类也必须定义为一个抽象类</li>
+</ul>
+</li>
+<li>抽象类的应用场景和好处<ul>
+<li>父类知道每一个子类都要做某个行为，但每个子类要做的情况不一样，父类就定义成抽象方法，交给子类去重写实现</li>
+<li>我们抽出这样的抽象类，是为了更好的支持多态</li>
+</ul>
+</li>
+</ul>
+<h1 id="04-抽象类的应用-模板方法设计模式"><a href="#04-抽象类的应用-模板方法设计模式" class="headerlink" title="04 抽象类的应用-模板方法设计模式"></a>04 抽象类的应用-模板方法设计模式</h1><ul>
+<li>模板方法设计模式解决了方法中存在重复代码的问题</li>
+<li>模板方法设计模式应该怎么写<ul>
+<li>定义一个抽象类</li>
+<li>在抽象类李定义两个方法<ul>
+<li>一个是模板方法：放相同的代码</li>
+<li>一个是抽象方法：具体实现交给子类完成</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>模板方法建议使用final关键字修饰</li>
+</ul>
+<h1 id="05-接口：认识接口，使用接口的好处"><a href="#05-接口：认识接口，使用接口的好处" class="headerlink" title="05 接口：认识接口，使用接口的好处"></a>05 接口：认识接口，使用接口的好处</h1><ul>
+<li>java提供了一个关键字interface，用这个关键字我们可以定义出一个特殊的结构：接口</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> interface 接口名&#123;</span><br><span class="line">    <span class="comment">//成员变量（常量）</span></span><br><span class="line">    <span class="comment">//成员方法（抽象方法）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：接口不能创建对象；接口是用来被类实现(implements)的，实现接口的类称为实现类</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">修饰符 <span class="keyword">class</span> 实现类 implements 接口<span class="number">1</span>,接口<span class="number">2</span>,接口<span class="number">3</span>,...&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>一个类可以实现多个接口（接口可以理解为干爹），实现类实现多个接口，必须重写完所有接口的全部抽象方法，否则实现类需要定义成抽象类</p>
+</li>
+<li><p>接口的好处（重点）</p>
+<ul>
+<li>弥补了类单继承的不足，一个类同时可以实现多个接口</li>
+<li>让程序可以面向接口编程，这样程序员就可以灵活方便地求换各种业务实现</li>
+<li>使用接口去找干爹，别人通过你implements的接口，就可以显性的知道你是谁，从而也就可以放心的把你当作谁来用了</li>
+<li>一个类我们可以实现多个接口，同样，一个接口也可以被多个类实现。这样做的好处是我们的程序就可以面向接口编程了，这样可以很方便地灵活切换各种业务实现了</li>
+</ul>
+</li>
+</ul>
+<h1 id="06-接口：综合案例"><a href="#06-接口：综合案例" class="headerlink" title="06 接口：综合案例"></a>06 接口：综合案例</h1><h1 id="07-接口：JDK8开始接口新增的方法、接口的多继承、注意事项"><a href="#07-接口：JDK8开始接口新增的方法、接口的多继承、注意事项" class="headerlink" title="07 接口：JDK8开始接口新增的方法、接口的多继承、注意事项"></a>07 接口：JDK8开始接口新增的方法、接口的多继承、注意事项</h1><ul>
+<li>JDK8开始，接口新增了哪些方法<ul>
+<li>默认方法：default修饰，使用实现类的对象调用</li>
+<li>静态方法：static修饰，必须用当前接口名调用</li>
+<li>私有方法：private修饰，jdk9开始，只能在接口内被调用</li>
+<li>默认他们都会被public修饰</li>
+</ul>
+</li>
+<li>JDK8开始，新增的方法增强了接口的能力，更便于项目的扩展和维护</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2023/11/12/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%BA%8C%EF%BC%89/" data-id="clovkeiy90000i4sz9st6dimi" data-title="面向对象高级（二）" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-项目实战" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/11/05/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="article-date">
@@ -1190,103 +1358,6 @@ $ mvn install
 
 
   
-    <article id="post-面向对象基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time class="dt-published" datetime="2023-10-21T16:00:00.000Z" itemprop="datePublished">2023-10-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/">面向对象基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="01-入门，彻底搞懂对象"><a href="#01-入门，彻底搞懂对象" class="headerlink" title="01 入门，彻底搞懂对象"></a>01 入门，彻底搞懂对象</h1><ul>
-<li><p>凡事找对象的编程套路，更加符合思维习惯，编程更加直观</p>
-</li>
-<li><p>对象就是一种特殊的数据结构</p>
-</li>
-<li><p>对象数用类new出来的，有类就可以创建出对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class 类名&#123;</span><br><span class="line">    <span class="number">1.</span>变量，用来说明对象可以处理什么数据</span><br><span class="line">    <span class="number">2.</span>方法，描述对象有什么功能，也就是可以对数据进行什么样的处理</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">类名 对象名=<span class="keyword">new</span> 类名()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>面向对象编程的思想：万物皆对象，谁的数据谁处理</p>
-</li>
-</ul>
-<h1 id="02-对象执行原理，类与对象注意事项"><a href="#02-对象执行原理，类与对象注意事项" class="headerlink" title="02 对象执行原理，类与对象注意事项"></a>02 对象执行原理，类与对象注意事项</h1><ul>
-<li>每次Student s&#x3D;new Student（），就是在堆内存中开辟一块内存区域，s变量存储对象的地址</li>
-</ul>
-<h1 id="03-this关键字"><a href="#03-this关键字" class="headerlink" title="03 this关键字"></a>03 this关键字</h1><ul>
-<li>this就是一个变量，可以用在方法中，用来取得当前对象；哪个对象调用方法，this就指向哪个对象，也就是拿到哪个对象</li>
-<li>用于解决对象的成员变量与方法内部变量名称一样时，导致访问冲突问题的</li>
-</ul>
-<h1 id="04-构造器"><a href="#04-构造器" class="headerlink" title="04 构造器"></a>04 构造器</h1><ul>
-<li><p>结构</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">    <span class="comment">/**构造器*/</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>构造器的调用</p>
-<ul>
-<li>对象创建时，我们可以指定对象去调用哪个构造器执行</li>
-<li>构造器常用于对象初始化（如完成对象的成员变量的初始化赋值）</li>
-</ul>
-</li>
-<li><p>注意事项</p>
-<ul>
-<li>类在设计时，如果不写构造器，Java会位类自动生成一个无参构造器</li>
-<li>一旦定义了有参构造器，Java就不会帮我们的类生成无参构造器，此时就建议自己手写一个无参构造器</li>
-</ul>
-</li>
-</ul>
-<h1 id="05-封装，实体JavaBean"><a href="#05-封装，实体JavaBean" class="headerlink" title="05 封装，实体JavaBean"></a>05 封装，实体JavaBean</h1><ul>
-<li>封装<ul>
-<li>封装就是用类设计对象处理某一个事物的数据时，应该把要处理的数据以及处理这些数据的方法，设计到一个对象中去</li>
-<li>面向对象的三大特征：封装，继承，多态</li>
-<li>封装的设计规范：合理隐藏，合理暴露</li>
-<li>public修饰公开成员，private修饰隐藏成员</li>
-</ul>
-</li>
-<li>实体类<ul>
-<li>成员变量必须私有，且要为他们提供get&amp;set方法，必须有无参构造器</li>
-<li>仅仅用于保存数据的Java类，可以用于创建对象，保存某个事物的数据</li>
-<li>可以应用于数据与处理相分离的业务模式</li>
-</ul>
-</li>
-</ul>
-<h1 id="综合案例，成员变量，局部变量的区别"><a href="#综合案例，成员变量，局部变量的区别" class="headerlink" title="综合案例，成员变量，局部变量的区别"></a>综合案例，成员变量，局部变量的区别</h1><ul>
-<li>类中的位置不同</li>
-<li>初始化值不同</li>
-<li>内存位置不同</li>
-<li>作用域不同</li>
-<li>生命周期不同</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yohanemashiro.github.io/2023/10/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/" data-id="clo1mxv5y000kzgsz2u0r6s95" data-title="面向对象基础" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1341,6 +1412,10 @@ $ mvn install
           </li>
         
           <li>
+            <a href="/2023/11/12/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%BA%8C%EF%BC%89/">面向对象高级（二）</a>
+          </li>
+        
+          <li>
             <a href="/2023/11/05/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">项目实战</a>
           </li>
         
@@ -1350,10 +1425,6 @@ $ mvn install
         
           <li>
             <a href="/2023/11/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%B8%80%EF%BC%89/">面向对象高级（一）</a>
-          </li>
-        
-          <li>
-            <a href="/2023/10/29/%E9%A2%84%E5%A4%87%E9%98%9Fweek3/">预备队训练week3</a>
           </li>
         
       </ul>
