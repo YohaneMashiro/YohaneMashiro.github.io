@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>预备队训练week6 | sTorYs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本周简述补了周赛的题，做了一点提高组的内容（单调队列，线段树，综合），看了map和set用法 小源爱写题解：思路动态规划，一开始想要设dp[i] [j] [k]表示第i天一共写了j道题，最后一天写了k道题，发现转移代价过高，于是写挂了 看了题解发现设dp[i] [j]表示一共写了i道题，最后一天写了j道题，不考虑中间天数，直接考虑最后一天的情况 事实上也可以表示出答案：dp[n] [j]-1，因为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="预备队训练week6">
+<meta property="og:url" content="https://yohanemashiro.github.io/2023/11/19/%E9%A2%84%E5%A4%87%E9%98%9Fweek6/index.html">
+<meta property="og:site_name" content="sTorYs">
+<meta property="og:description" content="本周简述补了周赛的题，做了一点提高组的内容（单调队列，线段树，综合），看了map和set用法 小源爱写题解：思路动态规划，一开始想要设dp[i] [j] [k]表示第i天一共写了j道题，最后一天写了k道题，发现转移代价过高，于是写挂了 看了题解发现设dp[i] [j]表示一共写了i道题，最后一天写了j道题，不考虑中间天数，直接考虑最后一天的情况 事实上也可以表示出答案：dp[n] [j]-1，因为">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-19T15:48:41.999Z">
+<meta property="article:author" content="Shirohao">
+<meta property="article:tag" content="预备队">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sTorYs" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sTorYs</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">collect the world</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yohanemashiro.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-预备队week6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/19/%E9%A2%84%E5%A4%87%E9%98%9Fweek6/" class="article-date">
+  <time class="dt-published" datetime="2023-11-18T16:00:00.000Z" itemprop="datePublished">2023-11-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      预备队训练week6
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本周简述"><a href="#本周简述" class="headerlink" title="本周简述"></a>本周简述</h2><p>补了周赛的题，做了一点提高组的内容（单调队列，线段树，综合），看了<a target="_blank" rel="noopener" href="https://www.cnblogs.com/fnlingnzb-learner/p/5833051.html">map</a>和<a target="_blank" rel="noopener" href="https://www.cnblogs.com/linuxAndMcu/p/10261014.html">set</a>用法</p>
+<h2 id="小源爱写题"><a href="#小源爱写题" class="headerlink" title="小源爱写题"></a><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/1723615838372442112/exam/problems/1723616012012421121?type=7&page=0">小源爱写题</a></h2><h3 id="解："><a href="#解：" class="headerlink" title="解："></a>解：</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>动态规划，一开始想要设dp[i] [j] [k]表示第i天一共写了j道题，最后一天写了k道题，发现转移代价过高，于是写挂了</p>
+<p>看了题解发现设dp[i] [j]表示一共写了i道题，最后一天写了j道题，不考虑中间天数，直接考虑最后一天的情况</p>
+<p>事实上也可以表示出答案：dp[n] [j]-1，因为dp[n] [n]只需要写一天违背题意</p>
+<p>转移：dp[i] [j] +&#x3D; dp[i-j] [k] (k&lt;j)</p>
+<h4 id="code"><a href="#code" class="headerlink" title="code"></a>code</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> SIZE=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF=<span class="number">1LL</span>&lt;&lt;<span class="number">63</span><span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,ans,dp[<span class="number">510</span>][<span class="number">510</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)<span class="comment">//注意循环范围</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i;++j)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;j;++k)</span><br><span class="line">                dp[i][j]+=dp[i-j][k];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i) ans+=dp[n][i];</span><br><span class="line">    cout&lt;&lt;ans<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="反思："><a href="#反思：" class="headerlink" title="反思："></a>反思：</h3><p>转移成本高可能是状态设的不好，考虑用最小的状态描述好问题</p>
+<p>可以在循环的时候就把限定条件写出，如j&lt;&#x3D;i,k&lt;j</p>
+<p>最后取答案时注意吧不符合条件的减掉</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2023/11/19/%E9%A2%84%E5%A4%87%E9%98%9Fweek6/" data-id="clp5nkqsz0000wwszcu5q5i3k" data-title="预备队训练week6" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/11/12/%E9%A2%84%E5%A4%87%E9%98%9Fweek5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">预备队训练week5</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/19/%E9%A2%84%E5%A4%87%E9%98%9Fweek6/">预备队训练week6</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/12/%E9%A2%84%E5%A4%87%E9%98%9Fweek5/">预备队训练week5</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/12/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%BA%8C%EF%BC%89/">面向对象高级（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/05/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">项目实战</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/05/%E9%A2%84%E5%A4%87%E9%98%9Fweek4/">预备队训练week4</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Shirohao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
