@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>预备队训练week7 | sTorYs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本周简述复习了dfs和bfs，写了一点cf的题看了一些杂项（欧拉图，树知识） CF1063B解：思路明显的bfs，但是要考虑答案如何产生 如果简单地用vis数组判断，容易发生优解后遍历但是因为vis&#x3D;&#x3D;1无法更新答案的情况 所以一个vis不足以否定劣解，发现优解和剩余移动次数是相关的 考虑一种一定劣解，即此前的剩余移动次数（左，右）均大于当前状态，舍去 事实上这样剪一下枝就可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="预备队训练week7">
+<meta property="og:url" content="https://yohanemashiro.github.io/2023/11/26/%E9%A2%84%E5%A4%87%E9%98%9Fweek7/index.html">
+<meta property="og:site_name" content="sTorYs">
+<meta property="og:description" content="本周简述复习了dfs和bfs，写了一点cf的题看了一些杂项（欧拉图，树知识） CF1063B解：思路明显的bfs，但是要考虑答案如何产生 如果简单地用vis数组判断，容易发生优解后遍历但是因为vis&#x3D;&#x3D;1无法更新答案的情况 所以一个vis不足以否定劣解，发现优解和剩余移动次数是相关的 考虑一种一定劣解，即此前的剩余移动次数（左，右）均大于当前状态，舍去 事实上这样剪一下枝就可以">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-26T13:49:35.366Z">
+<meta property="article:author" content="Shirohao">
+<meta property="article:tag" content="预备队">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sTorYs" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sTorYs</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">collect the world</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yohanemashiro.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-预备队week7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/26/%E9%A2%84%E5%A4%87%E9%98%9Fweek7/" class="article-date">
+  <time class="dt-published" datetime="2023-11-25T16:00:00.000Z" itemprop="datePublished">2023-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      预备队训练week7
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本周简述"><a href="#本周简述" class="headerlink" title="本周简述"></a>本周简述</h2><p>复习了dfs和bfs，写了一点cf的题看了一些杂项（<a target="_blank" rel="noopener" href="https://oi-wiki.org/graph/euler/">欧拉图</a>，<a target="_blank" rel="noopener" href="https://oi-wiki.org/graph/tree-centroid/">树知识</a>）</p>
+<h2 id="CF1063B"><a href="#CF1063B" class="headerlink" title="CF1063B"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1063B">CF1063B</a></h2><h3 id="解："><a href="#解：" class="headerlink" title="解："></a>解：</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>明显的bfs，但是要考虑答案如何产生</p>
+<p>如果简单地用vis数组判断，容易发生优解后遍历但是因为vis&#x3D;&#x3D;1无法更新答案的情况</p>
+<p>所以一个vis不足以否定劣解，发现优解和剩余移动次数是相关的</p>
+<p>考虑一种一定劣解，即此前的剩余移动次数（左，右）均大于当前状态，舍去</p>
+<p>事实上这样剪一下枝就可以跑过该题</p>
+<h4 id="code"><a href="#code" class="headerlink" title="code"></a>code</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> SIZE=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF=<span class="number">1LL</span>&lt;&lt;<span class="number">63</span><span class="number">-1</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y,cntx,cnty;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">op</span>&#123;</span><br><span class="line">    <span class="type">int</span> cx,cy;</span><br><span class="line">&#125;ops[<span class="number">5</span>],st[<span class="number">2010</span>][<span class="number">2010</span>];</span><br><span class="line"><span class="type">int</span> n,m,r,c,allx,ally,ans;</span><br><span class="line"><span class="type">bool</span> g[<span class="number">2010</span>][<span class="number">2010</span>],vis[<span class="number">2010</span>][<span class="number">2010</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">int</span> cntx,<span class="type">int</span> cnty)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;<span class="number">1</span>||x&gt;n||y&lt;<span class="number">1</span>||y&gt;m||!g[x][y]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(cntx&gt;allx||cnty&gt;ally) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">int</span> cntx,<span class="type">int</span> cnty)</span></span>&#123;</span><br><span class="line">    queue&lt;node&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>((node)&#123;x,y,cntx,cnty&#125;);</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        node t=q.<span class="built_in">front</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(vis[t.x][t.y]&amp;&amp;t.cntx&gt;=st[t.x][t.y].cx&amp;&amp;t.cnty&gt;=st[t.x][t.y].cy) <span class="keyword">continue</span>;</span><br><span class="line">        st[t.x][t.y].cx=<span class="built_in">min</span>(st[t.x][t.y].cx,t.cntx);</span><br><span class="line">        st[t.x][t.y].cy=<span class="built_in">min</span>(st[t.x][t.y].cy,t.cnty);</span><br><span class="line">        vis[t.x][t.y]=<span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">4</span>;++i)&#123;</span><br><span class="line">            <span class="type">int</span> xx=t.x+ops[i].cx,</span><br><span class="line">                yy=t.y+ops[i].cy;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">check</span>(xx,yy,t.cntx+(ops[i].cy==<span class="number">-1</span>),t.cnty+(ops[i].cy==<span class="number">1</span>)))&#123;</span><br><span class="line">                q.<span class="built_in">push</span>((node)&#123;xx,yy,t.cntx+(ops[i].cy==<span class="number">-1</span>),t.cnty+(ops[i].cy==<span class="number">1</span>)&#125;);</span><br><span class="line">                <span class="comment">// bfs(xx,yy,t.cntx+(ops[i].cy==-1),t.cnty+(ops[i].cy==1));</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    ops[<span class="number">1</span>]=(op)&#123;<span class="number">-1</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    ops[<span class="number">2</span>]=(op)&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    ops[<span class="number">3</span>]=(op)&#123;<span class="number">0</span>,<span class="number">-1</span>&#125;,</span><br><span class="line">    ops[<span class="number">4</span>]=(op)&#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line"> </span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m&gt;&gt;r&gt;&gt;c&gt;&gt;allx&gt;&gt;ally;</span><br><span class="line">    <span class="type">char</span> tmp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;++j)&#123;</span><br><span class="line">            st[i][j]=(op)&#123;INF,INF&#125;;</span><br><span class="line">            cin&gt;&gt;tmp;</span><br><span class="line">            <span class="keyword">if</span>(tmp==<span class="string">&#x27;.&#x27;</span>) g[i][j]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">bfs</span>(r,c,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;++j)</span><br><span class="line">            ans+=vis[i][j];</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="反思："><a href="#反思：" class="headerlink" title="反思："></a>反思：</h3><p>bfs需要剪枝，但是不一定就是vis单一判据</p>
+<p>剪枝时从最容易排除的状态开始，逐渐深入（或者就和这题一样直接跑过了）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2023/11/26/%E9%A2%84%E5%A4%87%E9%98%9Fweek7/" data-id="clpfjuhag0000uosz46he6liv" data-title="预备队训练week7" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/11/19/%E9%A2%84%E5%A4%87%E9%98%9Fweek6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">预备队训练week6</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/26/%E9%A2%84%E5%A4%87%E9%98%9Fweek7/">预备队训练week7</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/19/%E9%A2%84%E5%A4%87%E9%98%9Fweek6/">预备队训练week6</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/12/%E9%A2%84%E5%A4%87%E9%98%9Fweek5/">预备队训练week5</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/12/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%BA%8C%EF%BC%89/">面向对象高级（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/05/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">项目实战</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Shirohao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
