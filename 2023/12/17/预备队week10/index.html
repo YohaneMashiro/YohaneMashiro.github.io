@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>预备队训练week10 | sTorYs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本周简述补题 abc286_e解：思路注意到是两种交通方式且不会交叉，枚举点，分为前半段和后半段最短路之和 code123456789101112131415161718192021222324252627282930313233343536373839404142#include&lt;bits&#x2F;stdc++.h&gt;#define int long longusing namespace s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="预备队训练week10">
+<meta property="og:url" content="https://yohanemashiro.github.io/2023/12/17/%E9%A2%84%E5%A4%87%E9%98%9Fweek10/index.html">
+<meta property="og:site_name" content="sTorYs">
+<meta property="og:description" content="本周简述补题 abc286_e解：思路注意到是两种交通方式且不会交叉，枚举点，分为前半段和后半段最短路之和 code123456789101112131415161718192021222324252627282930313233343536373839404142#include&lt;bits&#x2F;stdc++.h&gt;#define int long longusing namespace s">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-17T15:17:28.243Z">
+<meta property="article:author" content="Shirohao">
+<meta property="article:tag" content="预备队">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sTorYs" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sTorYs</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">collect the world</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yohanemashiro.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-预备队week10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/17/%E9%A2%84%E5%A4%87%E9%98%9Fweek10/" class="article-date">
+  <time class="dt-published" datetime="2023-12-16T16:00:00.000Z" itemprop="datePublished">2023-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      预备队训练week10
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="本周简述"><a href="#本周简述" class="headerlink" title="本周简述"></a>本周简述</h2><p>补题</p>
+<h2 id="abc286-e"><a href="#abc286-e" class="headerlink" title="abc286_e"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc286/tasks/abc286_e">abc286_e</a></h2><h3 id="解："><a href="#解：" class="headerlink" title="解："></a>解：</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>注意到是两种交通方式且不会交叉，枚举点，分为前半段和后半段最短路之和</p>
+<h4 id="code"><a href="#code" class="headerlink" title="code"></a>code</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> SIZE=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF=<span class="number">576460752303423488</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,q,a[<span class="number">310</span>],d[<span class="number">310</span>][<span class="number">310</span>],val[<span class="number">310</span>][<span class="number">310</span>];</span><br><span class="line"><span class="type">bool</span> g[<span class="number">310</span>][<span class="number">310</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i) cin&gt;&gt;a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;++j)&#123;</span><br><span class="line">            <span class="type">char</span> x;cin&gt;&gt;x;</span><br><span class="line">            d[i][j]=INF,val[i][j]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(x==<span class="string">&#x27;Y&#x27;</span>) d[i][j]=<span class="number">1</span>,val[i][j]=a[j];</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i) d[i][i]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>;k&lt;=n;++k)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;++j)</span><br><span class="line">                <span class="keyword">if</span>(d[i][k]+d[k][j]&lt;d[i][j])&#123;</span><br><span class="line">                    d[i][j]=d[i][k]+d[k][j],</span><br><span class="line">                    val[i][j]=val[i][k]+val[k][j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(d[i][k]+d[k][j]==d[i][j]&amp;&amp;val[i][k]+val[k][j]&gt;val[i][j])</span><br><span class="line">                    val[i][j]=val[i][k]+val[k][j];</span><br><span class="line"></span><br><span class="line">    cin&gt;&gt;q;</span><br><span class="line">    <span class="keyword">while</span>(q--)&#123;</span><br><span class="line">        <span class="type">int</span> u,v;</span><br><span class="line">        cin&gt;&gt;u&gt;&gt;v;</span><br><span class="line">        <span class="keyword">if</span>(d[u][v]==INF) cout&lt;&lt;<span class="string">&quot;Impossible\n&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span> cout&lt;&lt;d[u][v]&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;val[u][v]+a[u]&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="反思："><a href="#反思：" class="headerlink" title="反思："></a>反思：</h3><h2 id="abc325-e"><a href="#abc325-e" class="headerlink" title="abc325_e"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc325/tasks/abc325_e">abc325_e</a></h2><h3 id="解：-1"><a href="#解：-1" class="headerlink" title="解："></a>解：</h3><h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>观察数据和询问，发现是全源最短路，考虑弗洛伊德并且在转移过程中加上附加条件</p>
+<h4 id="code-1"><a href="#code-1" class="headerlink" title="code"></a>code</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> SIZE=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF=<span class="number">1LL</span>&lt;&lt;<span class="number">63</span><span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,A,B,C,ans=INF;</span><br><span class="line"><span class="type">int</span> g[<span class="number">1010</span>][<span class="number">1010</span>][<span class="number">2</span>],car[<span class="number">1010</span>],train[<span class="number">1010</span>];</span><br><span class="line"><span class="type">bool</span> vis[<span class="number">1010</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> to,val;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&lt;(<span class="type">const</span> node&amp;x)<span class="type">const</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> val&gt;x.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;node&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Dij_car</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>()) q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis);</span><br><span class="line">    q.<span class="built_in">push</span>((node)&#123;<span class="number">1</span>,<span class="number">0</span>&#125;);</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        node t=q.<span class="built_in">top</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(vis[t.to]) <span class="keyword">continue</span>;</span><br><span class="line">        vis[t.to]=<span class="number">1</span>,car[t.to]=t.val;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;++j)</span><br><span class="line">            <span class="keyword">if</span>(!vis[j])</span><br><span class="line">                q.<span class="built_in">push</span>((node)&#123;j,t.val+g[t.to][j][<span class="number">0</span>]&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Dij_train</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>()) q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis);</span><br><span class="line">    q.<span class="built_in">push</span>((node)&#123;n,<span class="number">0</span>&#125;);</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        node t=q.<span class="built_in">top</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(vis[t.to]) <span class="keyword">continue</span>;</span><br><span class="line">        vis[t.to]=<span class="number">1</span>,train[t.to]=t.val;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;++j)</span><br><span class="line">            <span class="keyword">if</span>(!vis[j])</span><br><span class="line">                q.<span class="built_in">push</span>((node)&#123;j,t.val+g[t.to][j][<span class="number">1</span>]&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;A&gt;&gt;B&gt;&gt;C;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;++j)&#123;</span><br><span class="line">            <span class="type">int</span> x;cin&gt;&gt;x;</span><br><span class="line">            g[i][j][<span class="number">0</span>]=x*A,</span><br><span class="line">            g[i][j][<span class="number">1</span>]=x*B+C;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">Dij_car</span>();</span><br><span class="line">    <span class="built_in">Dij_train</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i) ans=<span class="built_in">min</span>(ans,car[i]+train[i]);</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="反思：-1"><a href="#反思：-1" class="headerlink" title="反思："></a>反思：</h3><h2 id="abc171-f"><a href="#abc171-f" class="headerlink" title="abc171_f"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc171/tasks/abc171_f">abc171_f</a></h2><h3 id="解：-2"><a href="#解：-2" class="headerlink" title="解："></a>解：</h3><h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>组合数学，大苦手，贴一篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/cqbzlydd/article/details/118608222?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-118608222-blog-114681258.235%5Ev39%5Epc_relevant_3m_sort_dl_base1&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-118608222-blog-114681258.235%5Ev39%5Epc_relevant_3m_sort_dl_base1&utm_relevant_index=1">std</a></p>
+<h4 id="code-2"><a href="#code-2" class="headerlink" title="code"></a>code</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mx=<span class="number">2e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line">ll res,fac[mx],inv[mx];</span><br><span class="line"><span class="comment">//相同的字符 x ，取序列中的最后一个 </span></span><br><span class="line"><span class="function">ll <span class="title">fpow</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">	ll mul=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(;y;y&gt;&gt;=<span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span>(y&amp;<span class="number">1</span>) mul=mul*x%mod;</span><br><span class="line">		x=x*x%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> mul; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> fac[x]*inv[x-y]%mod*inv[y]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">A</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> fac[x]*inv[y]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">G</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">C</span>(x+y<span class="number">-1</span>,y<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">char</span> s[mx];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//	freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%s&quot;</span>,&amp;m,s+<span class="number">1</span>),n=<span class="built_in">strlen</span>(s+<span class="number">1</span>);</span><br><span class="line">    fac[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">2000000</span>;i++) fac[i]=fac[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">	inv[<span class="number">2000000</span>]=<span class="built_in">fpow</span>(fac[<span class="number">2000000</span>],mod<span class="number">-2</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2000000</span>;i&gt;=<span class="number">1</span>;i--) &#123;</span><br><span class="line">		inv[i<span class="number">-1</span>]=inv[i]*i%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m+<span class="number">1</span>;i++) &#123;</span><br><span class="line">		ll turn1=<span class="built_in">fpow</span>(<span class="number">26</span>,i<span class="number">-1</span>),turn2=<span class="built_in">C</span>(n+m-i,n<span class="number">-1</span>)*<span class="built_in">fpow</span>(<span class="number">25</span>,n+m-i-(n<span class="number">-1</span>))%mod;</span><br><span class="line">		res=(res+turn1*turn2%mod)%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="反思：-2"><a href="#反思：-2" class="headerlink" title="反思："></a>反思：</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2023/12/17/%E9%A2%84%E5%A4%87%E9%98%9Fweek10/" data-id="clq9msloa0000ocsz9gq55xal" data-title="预备队训练week10" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/12/11/%E9%A2%84%E5%A4%87%E9%98%9Fweek9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">预备队训练week9</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/12/17/%E9%A2%84%E5%A4%87%E9%98%9Fweek10/">预备队训练week10</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/11/%E9%A2%84%E5%A4%87%E9%98%9Fweek9/">预备队训练week9</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/%E9%A2%84%E5%A4%87%E9%98%9Fweek8/">预备队训练week8</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/26/%E9%A2%84%E5%A4%87%E9%98%9Fweek7/">预备队训练week7</a>
+          </li>
+        
+          <li>
+            <a href="/2023/11/19/%E9%A2%84%E5%A4%87%E9%98%9Fweek6/">预备队训练week6</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Shirohao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
