@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>常用API（一） | sTorYs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="01 Object类、toString类、equals类，对象克隆clone Object类是Java中所有类的祖宗类，因此Java中所有类的对象都可以直接使用Object类中提供的一些方法  常见方法 123456789101112public String toString()基本作用：返回对象的字符串形式意义：让子类重写，以便返回子类对象的内容------------------------">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用API（一）">
+<meta property="og:url" content="https://yohanemashiro.github.io/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="sTorYs">
+<meta property="og:description" content="01 Object类、toString类、equals类，对象克隆clone Object类是Java中所有类的祖宗类，因此Java中所有类的对象都可以直接使用Object类中提供的一些方法  常见方法 123456789101112public String toString()基本作用：返回对象的字符串形式意义：让子类重写，以便返回子类对象的内容------------------------">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-11T13:33:06.864Z">
+<meta property="article:author" content="Shirohao">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sTorYs" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sTorYs</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">collect the world</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yohanemashiro.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-常用API（一）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%B8%80%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2024-03-10T16:00:00.000Z" itemprop="datePublished">2024-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      常用API（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="01-Object类、toString类、equals类，对象克隆clone"><a href="#01-Object类、toString类、equals类，对象克隆clone" class="headerlink" title="01 Object类、toString类、equals类，对象克隆clone"></a>01 Object类、toString类、equals类，对象克隆clone</h1><ul>
+<li><p>Object类是Java中所有类的祖宗类，因此Java中所有类的对象都可以直接使用Object类中提供的一些方法</p>
+</li>
+<li><p>常见方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line">基本作用：返回对象的字符串形式</span><br><span class="line">意义：让子类重写，以便返回子类对象的内容</span><br><span class="line">---------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span></span><br><span class="line">基本作业：默认是比较两个对象的地址是否相等</span><br><span class="line">意义：让子类重写，以便用于比较对象的内容是否相同</span><br><span class="line">---------------------------------------------</span><br><span class="line"><span class="keyword">protected</span> Object <span class="title function_">clone</span><span class="params">()</span></span><br><span class="line">对象克隆</span><br><span class="line">    浅克隆，不复制引用指向</span><br><span class="line">    深克隆，复制引用指向，避免修改到原对象</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="02-Objects类、包装类"><a href="#02-Objects类、包装类" class="headerlink" title="02 Objects类、包装类"></a>02 Objects类、包装类</h1><ul>
+<li><p>Objects类是一个工具类，提供了很多操作对象的静态方法</p>
+<ul>
+<li><p>常见方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object a,Object b)</span></span><br><span class="line">先做非空判断，再比较两个对象</span><br><span class="line">------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">isNull</span><span class="params">(Object obj)</span></span><br><span class="line">判断对象是否为<span class="literal">null</span>，为<span class="literal">null</span>返回<span class="literal">true</span>，反之   </span><br><span class="line">------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">nonNull</span><span class="params">(Object obj)</span></span><br><span class="line">判断对象是否不为<span class="literal">null</span>，不为<span class="literal">null</span>则返回<span class="literal">true</span>，反之    </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>包装类就是把基本类型的数据包装成对象</p>
+<ul>
+<li><p>自动装箱：基本数据类型可以自动转换为包装类型</p>
+</li>
+<li><p>自动拆箱：包装类型可以自动转换为基本数据类型</p>
+</li>
+<li><p>可以实现基本数据类型和字符串类型的转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">toString</span><span class="params">(<span class="type">double</span> d)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line">----------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">parselnt</span><span class="params">(String s)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title function_">valueOf</span><span class="params">(String s)</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="03-StringBuilder、StringBuffer、StringJoiner"><a href="#03-StringBuilder、StringBuffer、StringJoiner" class="headerlink" title="03 StringBuilder、StringBuffer、StringJoiner"></a>03 StringBuilder、StringBuffer、StringJoiner</h1><ul>
+<li><p>StringBuilder代表可变字符串对象，相当于是一个容器，它里面装的字符串是可以改变的，就是用来操作字符串的</p>
+<ul>
+<li><p>代表可变字符串对象，相当于是一个容器，它里面装的字符串是可以改变的，就是用来操作字符串的</p>
+</li>
+<li><p>好处：StringBuilder比String更适合做字符串的修改操作，效率会更高，代码也会更简洁</p>
+</li>
+<li><p>构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">StringBuilder</span><span class="params">()</span></span><br><span class="line">创建一个空白的可变的字符串对象，不包含任何内容</span><br><span class="line">------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">StringBuilder</span><span class="params">(String str)</span></span><br><span class="line">创建一个指定字符串内容的可变字符串对象</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常见方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> StringBuilder <span class="title function_">append</span><span class="params">(任意类型)</span></span><br><span class="line">添加数据并返回StringBuilder对象本身</span><br><span class="line">--------------------------------------</span><br><span class="line"><span class="keyword">public</span> StringBuilder <span class="title function_">reverse</span><span class="params">()</span></span><br><span class="line">将对象的内容反转</span><br><span class="line">--------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">length</span><span class="params">()</span></span><br><span class="line">返回对象内容长度</span><br><span class="line">--------------------------------------</span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line">通过toString()就可以实现把StringBuilder转换为String</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>StringBuffer</p>
+<ul>
+<li>StringBuffer的用法与StringBuilder是一模一样的</li>
+<li>但StringBuilder是线程不安全的，StringBuffer是线程安全的</li>
+</ul>
+</li>
+<li><p>StringJoiner</p>
+<ul>
+<li><p>JDK8开始才有的，和StringBuilder一样，也是用来操作字符串的，也可以看成是一个容器，创建之后里面的内容是可变的</p>
+</li>
+<li><p>好处：不仅能提高字符串的操作效率，并且再有些场景下使用它操作字符串，代码会更简洁</p>
+</li>
+<li><p>构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">StringJoiner</span><span class="params">(间隔符号)</span></span><br><span class="line">创建一个StringJoiner对象，指定拼接时的间隔符号</span><br><span class="line">-------------------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">StirngJoiner</span><span class="params">(间隔符号，开始符号，结束符号)</span>    </span><br><span class="line">创建一个StringJoiner对象，指定拼接时的间隔符号、开始符号、结束符号</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>常见方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> StringJoiner <span class="title function_">add</span><span class="params">(添加的内容)</span></span><br><span class="line">添加数据，并返回对象本身</span><br><span class="line">-----------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">length</span><span class="params">()</span></span><br><span class="line">返回长度（字符出现的个数）</span><br><span class="line">-----------------------------------------</span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line">返回一个字符串（该字符串就是拼接之后的结果）</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="cltmzly4q000me8sz6zmgezem" data-title="常用API（一）" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%BA%8C%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          常用API（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/03/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%B8%89%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">面向对象高级（三）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%BA%8C%EF%BC%89/">常用API（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%B8%80%EF%BC%89/">常用API（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%B8%89%EF%BC%89/">面向对象高级（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/17/%E9%A2%84%E5%A4%87%E9%98%9Fweek10/">预备队训练week10</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/11/%E9%A2%84%E5%A4%87%E9%98%9Fweek9/">预备队训练week9</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 Shirohao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

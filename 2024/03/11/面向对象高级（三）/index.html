@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>面向对象高级（三） | sTorYs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="01内部类概述、成员内部类、静态内部类 成员内部类  成员的内部类是类中的一个普通成员，类似普通成员变量、成员方法 创建对象  1外部类名.内部类名 对象名&#x3D;new 外部类(...).new 内部类(...);   成员内部类的实例方法中，可以直接访问外部类的实例成员，静态成员  可以拿到外部类对象   1外部类名.this  静态内部类  静态内部类是有static修饰的内部类 创建对象  1外">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象高级（三）">
+<meta property="og:url" content="https://yohanemashiro.github.io/2024/03/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
+<meta property="og:site_name" content="sTorYs">
+<meta property="og:description" content="01内部类概述、成员内部类、静态内部类 成员内部类  成员的内部类是类中的一个普通成员，类似普通成员变量、成员方法 创建对象  1外部类名.内部类名 对象名&#x3D;new 外部类(...).new 内部类(...);   成员内部类的实例方法中，可以直接访问外部类的实例成员，静态成员  可以拿到外部类对象   1外部类名.this  静态内部类  静态内部类是有static修饰的内部类 创建对象  1外">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-11T13:34:15.633Z">
+<meta property="article:author" content="Shirohao">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sTorYs" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sTorYs</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">collect the world</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yohanemashiro.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-面向对象高级（三）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%B8%89%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2024-03-10T16:00:00.000Z" itemprop="datePublished">2024-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      面向对象高级（三）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="01内部类概述、成员内部类、静态内部类"><a href="#01内部类概述、成员内部类、静态内部类" class="headerlink" title="01内部类概述、成员内部类、静态内部类"></a>01内部类概述、成员内部类、静态内部类</h1><ul>
+<li><p>成员内部类</p>
+<ul>
+<li>成员的内部类是类中的一个普通成员，类似普通成员变量、成员方法</li>
+<li>创建对象</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">外部类名.内部类名 对象名=<span class="keyword">new</span> 外部类(...).new 内部类(...);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>成员内部类的实例方法中，可以直接访问外部类的实例成员，静态成员</p>
+</li>
+<li><p>可以拿到外部类对象</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">外部类名.<span class="built_in">this</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>静态内部类</p>
+<ul>
+<li>静态内部类是有static修饰的内部类</li>
+<li>创建对象</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">外部类名.内部类名 对象名=<span class="keyword">new</span> 外部类.内部类(...);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以访问外部类的静态成员，不能直接访问外部类的实例成员</li>
+</ul>
+</li>
+<li><p>局部内部类</p>
+<ul>
+<li>局部内部类是定义在方法中、代码块中、构造器等执行体中。</li>
+</ul>
+</li>
+</ul>
+<h1 id="02-认识匿名内部类、匿名内部类的使用场景和应用场景"><a href="#02-认识匿名内部类、匿名内部类的使用场景和应用场景" class="headerlink" title="02 认识匿名内部类、匿名内部类的使用场景和应用场景"></a>02 认识匿名内部类、匿名内部类的使用场景和应用场景</h1><ul>
+<li>书写格式</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> 类或接口(参数值...)&#123;</span><br><span class="line">    类体(一般是方法重写);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Animal</span>()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">cry</span><span class="params">()</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>匿名内部类本质是一个子类，并会立即创建出一个子类对象</li>
+<li>匿名内部类可以更加方便地创造出一个子类对象，通常作为一个参数传输给方法</li>
+</ul>
+<h1 id="03-认识枚举，枚举的作用和应用场景"><a href="#03-认识枚举，枚举的作用和应用场景" class="headerlink" title="03 认识枚举，枚举的作用和应用场景"></a>03 认识枚举，枚举的作用和应用场景</h1><ul>
+<li>枚举类的创建</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">A</span>&#123;</span><br><span class="line">    X,Y,Z</span><br><span class="line">&#125;</span><br><span class="line">-----------------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">A</span> <span class="keyword">extends</span> <span class="title class_">java</span>.lang.Enum&lt;A&gt;&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> A X=<span class="keyword">new</span> <span class="title class_">A</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> A Y=<span class="keyword">new</span> <span class="title class_">A</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> A Z=<span class="keyword">new</span> <span class="title class_">A</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> A[] values();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> A <span class="title function_">valueOf</span><span class="params">(java.lang.String)</span>;</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>枚举类的特点<ul>
+<li>枚举类的第一行只能罗列一些名称，这些名称都是常量，并且每一个常量记住的都是枚举类的一个对象</li>
+<li>枚举类的构造器是私有的，因此枚举类对外不能创建对象</li>
+<li>枚举都是最终类，不可以被继承</li>
+<li>枚举类中，从第二行开始可以定义类的其他各种成员</li>
+<li>编译器为枚举类新增了几个方法，并且枚举类都是继承：java.lang.Enum类的，从enum类也会继承到一些方法</li>
+</ul>
+</li>
+<li>枚举的常见应用场景<ul>
+<li>用来表示一组信息，然后作为参数进行传输</li>
+<li>参数值不受约束</li>
+<li>代码可读性好，参数值得到了约束，对使用者更友好</li>
+</ul>
+</li>
+</ul>
+<h1 id="04-认识泛型，泛型类和泛型接口"><a href="#04-认识泛型，泛型类和泛型接口" class="headerlink" title="04 认识泛型，泛型类和泛型接口"></a>04 认识泛型，泛型类和泛型接口</h1><ul>
+<li><p>定义类、接口、方法时，同时声明了一个或者多个类型变量（如：<E>），称为泛型类、泛型接口、泛型方法，它们统称为泛型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayList</span>&lt;E&gt;&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>作用：泛型提供了在编译阶段约束所能操作的数据类型，并自动进行检查的能力。这样可以避免强制类型转换及其可能出现的异常</p>
+</li>
+<li><p>泛型的本质：把具体的数据类型作为参数传给类型变量（建议使用大写英文字母，如E T K V）</p>
+</li>
+<li><p>泛型类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">修饰符 class 类名&lt;类型变量，类型变量...&gt;&#123;</span><br><span class="line">	...   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>泛型接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">修饰符 interface 接口名&lt;类型变量，类型变量...&gt;&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="05-泛型方法、泛型的通配符和泛型的上下限、泛型注意事项"><a href="#05-泛型方法、泛型的通配符和泛型的上下限、泛型注意事项" class="headerlink" title="05 泛型方法、泛型的通配符和泛型的上下限、泛型注意事项"></a>05 泛型方法、泛型的通配符和泛型的上下限、泛型注意事项</h1><ul>
+<li><p>泛型方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">修饰符&lt;类型变量，类型变量...s&gt;返回值类型 方法名(形参列表)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">-------------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="keyword">void</span> <span class="title function_">test</span><span class="params">(T t)</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通配符：就是”?”，可以在”使用泛型”的时候代表一切类型；E T K V 时在定义泛型的时候使用</p>
+</li>
+<li><p>泛型的上下限：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">泛型上限</span><br><span class="line">?extend Car</span><br><span class="line">?能接收的必须是Car或者其子类</span><br><span class="line">---------------------------</span><br><span class="line">泛型下限</span><br><span class="line">?<span class="built_in">super</span> Car</span><br><span class="line">?能接收的必须是Car或者其父类    </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>泛型的注意事项</p>
+<ul>
+<li>泛型擦除：泛型是公仔还在编译阶段的，一旦程序编译称为class文件就不存在了</li>
+<li>泛型不支持基本数据类型，只能支持对象类型（引用数据类型Integer、Double）</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2024/03/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%B8%89%EF%BC%89/" data-id="cltmzly4s000ve8szgfcj892z" data-title="面向对象高级（三）" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          常用API（一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/12/17/%E9%A2%84%E5%A4%87%E9%98%9Fweek10/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">预备队训练week10</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%BA%8C%EF%BC%89/">常用API（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%B8%80%EF%BC%89/">常用API（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%B8%89%EF%BC%89/">面向对象高级（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/17/%E9%A2%84%E5%A4%87%E9%98%9Fweek10/">预备队训练week10</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/11/%E9%A2%84%E5%A4%87%E9%98%9Fweek9/">预备队训练week9</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 Shirohao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

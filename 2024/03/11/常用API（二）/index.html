@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>常用API（二） | sTorYs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="01 Math、System、Runtime Math  代表数学，是一个工具类，里面提供的都是对数据进行操作的一些静态方法  常见方法 1234567891011121314151617181920public static int abs(int a)获取参数绝对值-------------------------------------------------public static do">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用API（二）">
+<meta property="og:url" content="https://yohanemashiro.github.io/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
+<meta property="og:site_name" content="sTorYs">
+<meta property="og:description" content="01 Math、System、Runtime Math  代表数学，是一个工具类，里面提供的都是对数据进行操作的一些静态方法  常见方法 1234567891011121314151617181920public static int abs(int a)获取参数绝对值-------------------------------------------------public static do">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-11T13:31:04.037Z">
+<meta property="article:author" content="Shirohao">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sTorYs" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sTorYs</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">collect the world</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yohanemashiro.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-常用API（二）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%BA%8C%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2024-03-10T16:00:00.000Z" itemprop="datePublished">2024-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      常用API（二）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="01-Math、System、Runtime"><a href="#01-Math、System、Runtime" class="headerlink" title="01 Math、System、Runtime"></a>01 Math、System、Runtime</h1><ul>
+<li><p>Math</p>
+<ul>
+<li><p>代表数学，是一个工具类，里面提供的都是对数据进行操作的一些静态方法</p>
+</li>
+<li><p>常见方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">abs</span><span class="params">(<span class="type">int</span> a)</span></span><br><span class="line">获取参数绝对值</span><br><span class="line">-------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">ceil</span><span class="params">(<span class="type">double</span> a)</span></span><br><span class="line">向上取整</span><br><span class="line">-------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">floor</span><span class="params">(<span class="type">double</span> a)</span></span><br><span class="line">向下取整</span><br><span class="line">-------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">round</span><span class="params">(<span class="type">float</span> a)</span></span><br><span class="line">四舍五入</span><br><span class="line">-------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">max</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span><br><span class="line">获取两个<span class="type">int</span>值中的较大值</span><br><span class="line">-------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">pow</span><span class="params">(<span class="type">double</span> a,<span class="type">double</span> b)</span></span><br><span class="line">返回a的b次幂的值</span><br><span class="line">-------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">random</span><span class="params">()</span></span><br><span class="line">返回值为<span class="type">double</span>的随机值，范围[<span class="number">0.0</span>,<span class="number">1.0</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>System</p>
+<ul>
+<li><p>代表程序所在的系统，也是一个工具类</p>
+</li>
+<li><p>常见方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">exit</span><span class="params">(<span class="type">int</span> status)</span></span><br><span class="line">终止当前运行的java虚拟机</span><br><span class="line">-------------------------------------------    </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">long</span> <span class="title function_">currentTimeMilis</span><span class="params">()</span>    </span><br><span class="line">返回当前系统的时间毫秒值形式（从<span class="number">19700.1</span><span class="number">.1</span> <span class="number">0</span>:<span class="number">00</span>开始）</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Runtime</p>
+<ul>
+<li><p>代表程序所在的运行环境</p>
+</li>
+<li><p>Runtime是一个单例类</p>
+</li>
+<li><p>常见方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Runtime <span class="title function_">getRuntime</span><span class="params">()</span></span><br><span class="line">返回与当前Java应用程序关联的运行时对象</span><br><span class="line">-----------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exit</span><span class="params">(<span class="type">int</span> status)</span></span><br><span class="line">终止当前运行的虚拟机，非零状态表示异常终止</span><br><span class="line">-----------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">availableProcessors</span><span class="params">()</span></span><br><span class="line">返回虚拟机能够使用的处理器数</span><br><span class="line">-----------------------------------------    </span><br><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">totalMemory</span><span class="params">()</span></span><br><span class="line">返回虚拟机中的内存总量    </span><br><span class="line">-----------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">freeMemory</span><span class="params">()</span></span><br><span class="line">返回虚拟机中的可用内存量</span><br><span class="line">-----------------------------------------    </span><br><span class="line"><span class="keyword">public</span> Process <span class="title function_">exec</span><span class="params">(String command)</span></span><br><span class="line">启动程序，返回该程序对象    </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="02-BigDecimal"><a href="#02-BigDecimal" class="headerlink" title="02 BigDecimal"></a>02 BigDecimal</h1><ul>
+<li><p>BigDecimal</p>
+<ul>
+<li><p>用于解决浮点数失真问题</p>
+</li>
+<li><p>常见构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">BigDecimal</span><span class="params">(<span class="type">double</span> val)</span></span><br><span class="line">将<span class="type">double</span>转换为Bigdecimal，但是没有解决精度问题</span><br><span class="line">---------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">BigDecimal</span><span class="params">(String val)</span>    </span><br><span class="line">将String转换成Bigdecimal    </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> BigDecimal <span class="title function_">valueOf</span><span class="params">(<span class="type">double</span> val)</span></span><br><span class="line">将一个<span class="type">double</span>类型的数据转换成BigDecimal</span><br><span class="line">-----------------------------------------------------    </span><br><span class="line"><span class="keyword">public</span> BigDecimal <span class="title function_">add</span><span class="params">(BigDecimal b)</span></span><br><span class="line">加法</span><br><span class="line">-----------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> BigDecimal <span class="title function_">substract</span><span class="params">(BigDecimal b)</span></span><br><span class="line">减法</span><br><span class="line">-----------------------------------------------------    </span><br><span class="line"><span class="keyword">public</span> BigDecimal <span class="title function_">multipy</span><span class="params">(BigDecimal b)</span></span><br><span class="line">乘法</span><br><span class="line">-----------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> BigDecimal <span class="title function_">divide</span><span class="params">(BigDecimal b)</span></span><br><span class="line">除法</span><br><span class="line">-----------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> BigDecimal <span class="title function_">divide</span><span class="params">(BigDecimal b,<span class="type">int</span> x)</span></span><br><span class="line">保留x位小数的除法</span><br><span class="line">-----------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="title function_">doubleValue</span><span class="params">()</span></span><br><span class="line">将BigDecimal转换成<span class="type">double</span>    </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="03-传统时间：Date日期类、SimpleDateFormat"><a href="#03-传统时间：Date日期类、SimpleDateFormat" class="headerlink" title="03 传统时间：Date日期类、SimpleDateFormat"></a>03 传统时间：Date日期类、SimpleDateFormat</h1><ul>
+<li><p>Date</p>
+<ul>
+<li><p>代表日期和时间</p>
+</li>
+<li><p>构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">Date</span><span class="params">()</span></span><br><span class="line">创建一个Date对象，表示系统时间</span><br><span class="line">----------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Date</span><span class="params">(<span class="type">long</span> time)</span></span><br><span class="line">把时间毫秒值转换成Date日期对象</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">getTime</span><span class="params">()</span></span><br><span class="line">返回<span class="number">1970.1</span><span class="number">.1</span> <span class="number">0</span>:<span class="number">00</span>到现在的毫秒数</span><br><span class="line">--------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setTime</span><span class="params">(<span class="type">long</span> time)</span></span><br><span class="line">设置日期对象的时间位当前时间毫秒值对应的时间</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>SimpleDateFormat</p>
+<ul>
+<li><p>代表简单日期格式化，可以用来把日期对象、时间毫秒值格式化成我们想要的形式</p>
+</li>
+<li><p>构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">SimpleDateFormat</span><span class="params">(String pattern)</span></span><br><span class="line">创建简单格式化对象，并封装时间的格式</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title function_">format</span><span class="params">(Date date)</span></span><br><span class="line">将日期格式化成日期/时间字符串</span><br><span class="line">------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title function_">format</span><span class="params">(Object time)</span></span><br><span class="line">将时间毫秒值格式化成日期/时间字符串</span><br><span class="line">------------------------------------------</span><br><span class="line"><span class="keyword">public</span> Date <span class="title function_">parse</span><span class="params">(String source)</span></span><br><span class="line">把字符串时间解析成日期对象，必须格式一致</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常见符号</p>
+<ul>
+<li>y-年</li>
+<li>M月</li>
+<li>d-日</li>
+<li>H-时</li>
+<li>m-分</li>
+<li>s-秒</li>
+<li>EEE-星期</li>
+<li>a-上午&#x2F;下午</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="04-传统时间：秒杀案例、Calendar"><a href="#04-传统时间：秒杀案例、Calendar" class="headerlink" title="04 传统时间：秒杀案例、Calendar"></a>04 传统时间：秒杀案例、Calendar</h1><ul>
+<li><p>秒杀活动</p>
+</li>
+<li><p>Calendar</p>
+<ul>
+<li><p>代表的时系统此刻时间对应的日历，可以单独获取、修改年月日 时分秒</p>
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Calendar <span class="title function_">getInstance</span><span class="params">()</span></span><br><span class="line">获取当前日历对象</span><br><span class="line">-------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">get</span><span class="params">(<span class="type">int</span> field)</span></span><br><span class="line">获取日历中的某个信息</span><br><span class="line">-------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> Date <span class="title function_">getTime</span><span class="params">()</span></span><br><span class="line">获取日期对象</span><br><span class="line">-------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">getTimeInMillis</span><span class="params">()</span></span><br><span class="line">获取时间毫秒值</span><br><span class="line">-------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">set</span><span class="params">(<span class="type">int</span> field,<span class="type">int</span> value)</span></span><br><span class="line">修改日历的某个信息</span><br><span class="line">-------------------------------------------    </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> field,<span class="type">int</span> amount)</span></span><br><span class="line">位某个信息增加/减少指定的值</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="05-JDK8开始新增的日期、时间"><a href="#05-JDK8开始新增的日期、时间" class="headerlink" title="05 JDK8开始新增的日期、时间"></a>05 JDK8开始新增的日期、时间</h1><ul>
+<li>传统时间类的问题<ul>
+<li>设计不合理，使用不方便</li>
+<li>都是可变对象，修改后会丢失最开始的时间信息</li>
+<li>线程不安全</li>
+<li>不能精确到纳秒，只能精确到毫秒</li>
+</ul>
+</li>
+<li>代替Calendar<ul>
+<li>LocalDate：年月日</li>
+<li>LocalTime：时分秒</li>
+<li>LocalDateTime：年月日时分秒</li>
+<li>ZoneId：时区</li>
+<li>ZoneDateTime：带时区的时间</li>
+</ul>
+</li>
+<li>代替Date<ul>
+<li>Instant：时间戳</li>
+</ul>
+</li>
+<li>代替SimpleDateFormat<ul>
+<li>DateTimeFormatter：用于时间的格式化和解析</li>
+</ul>
+</li>
+<li>其他补充<ul>
+<li>Period：时间间隔（年月日）</li>
+<li>Duration：时间间隔（时分秒纳秒）</li>
+</ul>
+</li>
+</ul>
+<h1 id="06-LocalDate、LocalTime、LocalDateTime、ZoneId、ZoneDateTime、Instant"><a href="#06-LocalDate、LocalTime、LocalDateTime、ZoneId、ZoneDateTime、Instant" class="headerlink" title="06 LocalDate、LocalTime、LocalDateTime、ZoneId、ZoneDateTime、Instant"></a>06 LocalDate、LocalTime、LocalDateTime、ZoneId、ZoneDateTime、Instant</h1><ul>
+<li><p>通用的获取对象的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> XXX <span class="title function_">now</span><span class="params">()</span></span><br><span class="line">获取系统当前时间对应的对象</span><br><span class="line">----------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> XXX <span class="title function_">of</span><span class="params">(...)</span></span><br><span class="line">获取指定时间的对象</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>LocalDate</p>
+<ul>
+<li><p>处理年月日、星期</p>
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getYear</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getMonthValue</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getDayOfMonth</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getDayofYear</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> DayOfWeek <span class="title function_">getDayOfWeek</span><span class="params">()</span></span><br><span class="line">-----------------------------------------------</span><br><span class="line"><span class="keyword">public</span> LocalDate <span class="title function_">withXXX</span><span class="params">()</span><span class="comment">//直接修改</span></span><br><span class="line"><span class="keyword">public</span> LocalDate <span class="title function_">plusXXX</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> LocalDate <span class="title function_">minusXXX</span><span class="params">()</span></span><br><span class="line">-----------------------------------------------    </span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isBefore</span><span class="params">(LocalDate x)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isAfter</span><span class="params">(LocalDate x)</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>LocalTime</p>
+<ul>
+<li><p>处理时分秒、纳秒</p>
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getHour</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getMinute</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getSecond</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getNano</span><span class="params">()</span></span><br><span class="line">---------------------------------------------</span><br><span class="line"><span class="keyword">public</span> LocalTime <span class="title function_">withXXX</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> LocalTime <span class="title function_">plusXXX</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> LocalTime <span class="title function_">minusXXX</span><span class="params">()</span></span><br><span class="line">---------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isBefore</span><span class="params">(LocalTime x)</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isAfter</span><span class="params">(LocalTime x)</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>LocalDateTime</p>
+<ul>
+<li>处理年月日、时分秒、星期、纳秒</li>
+<li>常用方法</li>
+</ul>
+</li>
+<li><p>ZoneId</p>
+<ul>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> ZoneId <span class="title function_">systemDefault</span><span class="params">()</span></span><br><span class="line">获取系统默认时区</span><br><span class="line">---------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Set&lt;String&gt; <span class="title function_">getAvailableZoneId</span><span class="params">()</span></span><br><span class="line">获取Java支持的全部时区Id</span><br><span class="line">---------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> ZoneId <span class="title function_">of</span><span class="params">(String zoneId)</span></span><br><span class="line">把某个时区id封装成ZoneId对象</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>ZoneDateTime</p>
+<ul>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> ZoneDateTime <span class="title function_">now</span><span class="params">(ZoneId zone)</span></span><br><span class="line">获取某个时区的ZoneDateTime对象,如Clock.systemUTC()</span><br><span class="line">--------------------------------------------------</span><br><span class="line">其他的同名于LocalDateTime</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Instant</p>
+<ul>
+<li><p>通过获取Instant的对象可以拿到此刻的时间，为1970.1.1 0:00到此刻的秒数+纳秒数</p>
+</li>
+<li><p>可以记录代码执行时间、记录用户操作时间点</p>
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Instant <span class="title function_">now</span><span class="params">()</span><span class="comment">//获取当前时间</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">getEpochSecond</span><span class="params">()</span><span class="comment">//获取1970-</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getNano</span><span class="params">()</span></span><br><span class="line">----------------------------------------------</span><br><span class="line"><span class="keyword">public</span> Instant <span class="title function_">plusXXX</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> Instant <span class="title function_">minusXXX</span><span class="params">()</span></span><br><span class="line">----------------------------------------------    </span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isBefore</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isAfter</span><span class="params">()</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="07-DateTimeFormatter、Period、Duration"><a href="#07-DateTimeFormatter、Period、Duration" class="headerlink" title="07 DateTimeFormatter、Period、Duration"></a>07 DateTimeFormatter、Period、Duration</h1><ul>
+<li><p>DateTimeFormatter</p>
+<ul>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> DateTimeFormatter <span class="title function_">ofPattern</span><span class="params">(时间格式)</span></span><br><span class="line">获取格式化器对象</span><br><span class="line">-----------------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">format</span><span class="params">(时间对象)</span></span><br><span class="line">格式化时间</span><br><span class="line">-----------------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> LocalDateTime <span class="title function_">parse</span><span class="params">(text,formatter)</span></span><br><span class="line">解析时间</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Period</p>
+<ul>
+<li><p>可以用于计算两个LocalDate对象相差的年月日</p>
+</li>
+<li><p>构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Period <span class="title function_">between</span><span class="params">(LocalDate start,LocalDate end)</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getYears</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getMonths</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getDays</span><span class="params">()</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Duration</p>
+<ul>
+<li><p>可以用于计算两个时间对象相差的天数、小时数、分数、秒数、纳秒数</p>
+</li>
+<li><p>支持LocalTime、LocalDateTime、Instant</p>
+</li>
+<li><p>构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Duration <span class="title function_">between</span><span class="params">(start,end)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">toDays</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">toMillis</span><span class="params">()</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">long</span> <span class="title function_">toXXX</span><span class="params">()</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="08-Arrays类、自定义排序规则Comparable、自定义比较器Comparator"><a href="#08-Arrays类、自定义排序规则Comparable、自定义比较器Comparator" class="headerlink" title="08 Arrays类、自定义排序规则Comparable、自定义比较器Comparator"></a>08 Arrays类、自定义排序规则Comparable、自定义比较器Comparator</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yohanemashiro.github.io/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%BA%8C%EF%BC%89/" data-id="cltmzly4q000je8szei5ddzrl" data-title="常用API（二）" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">常用API（一）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" rel="tag">预备队</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/%E9%A2%84%E5%A4%87%E9%98%9F/" style="font-size: 15px;">预备队</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%BA%8C%EF%BC%89/">常用API（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/11/%E5%B8%B8%E7%94%A8API%EF%BC%88%E4%B8%80%EF%BC%89/">常用API（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%EF%BC%88%E4%B8%89%EF%BC%89/">面向对象高级（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/17/%E9%A2%84%E5%A4%87%E9%98%9Fweek10/">预备队训练week10</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/11/%E9%A2%84%E5%A4%87%E9%98%9Fweek9/">预备队训练week9</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 Shirohao<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
